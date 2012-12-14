@@ -1,0 +1,49 @@
+			<div class="span2">
+	      <ul class="nav nav-tabs nav-stacked">
+				  <li class="active"><a href="#">Zleceniodawca:</a></li>
+				  <li><a href="#">FooCompn</a></li>
+				  <li><a href="#">Oceny (8.9/10)</a></li>
+				  <li><%= link_to 'Przeglądaj zlecenia', orders_path %></li>
+				</ul>
+	    </div>
+	    <div class="span10">
+	      
+	      <%= render 'layouts/notifications' %>
+
+
+
+				<ul class="breadcrumb">
+				  <li><%= link_to 'Home', root_path %> <span class="divider">/</span></li>
+				  <li><%= link_to 'Zlecenia', orders_path %> <span class="divider">/</span></li>
+				  <li class="active"><%= @order.name %> (numer: #<%= @order.id %>)</li>
+				</ul>
+
+				<h1>
+					<%= @order.name %>
+					<a href="#" class="btn btn-primary">Pisz</a>
+				</h1>
+
+				<p>
+					<span class="text-success lead">1.68 PLN</span>
+					<small class="muted">1,12 PLN / 1000 znaków</small>
+				</p>
+				<p>
+				</p>
+
+				<hr />
+				<h3>Opis</h3>
+				<div class="description">
+					<%= @order.description.html_safe %>
+				</div>
+
+				<hr />
+				<h3>Warunki</h3>
+				<h4>Słowa kluczowe</h3>
+				<p>
+					<em>Lorem</em> 2-4<br />
+					<em>Ipsum</em> 1-2
+				</p>
+				<h4>Ilość znaków</h4>
+				<p>1500 ze spacjami</p>
+
+	    </div>

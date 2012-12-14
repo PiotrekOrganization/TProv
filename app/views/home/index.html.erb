@@ -1,0 +1,39 @@
+<div class="span7">
+	<div class="hero-unit">
+	  <h1>Witaj!</h1>
+	  <p>TextProvider to platforma do realizacji zleceń copywriterskich</p>
+	  <h3>Dla kogo?</h3>
+	  <p>Piszesz teksty, jesteś copywriterem?</p>
+	  <p>
+	    <%= link_to 'Szukaj zleceń', orders_path, {:class => 'btn btn-primary btn-large'} %>
+	  </p>
+	  <p>Potrzebujesz artykułów, tekstów do pozycjonowania?</p>
+	  <p>
+	  	<%= link_to 'Dodaj zlecenie', orders_path, {:class => 'btn btn-primary btn-large'} %>
+	  </p>
+	</div>
+</div>
+<div class="span5">
+	<h2>Rejestracja</h2>
+	<p class="lead">Pierwszy raz?</p>
+	<form>
+		<div>
+	    <label class="control-label" for="inputEmail">Email</label>
+	    <input type="text" id="inputEmail">
+	  </div>
+	  <div>
+	    <label class="control-label" for="inputPassword">Hasło</label>
+	    <input type="password" id="inputPassword">
+	  </div>
+	  <div>
+	    <label class="control-label" for="inputPasswordAgain">Powtórz hasło</label>
+	    <input type="password" id="inputPasswordAgain">
+	  </div>
+	  <div>
+	    <label class="checkbox">
+        <input type="checkbox"> Zapoznałem się z <a href="#">Regulaminem</a>
+      </label>
+      <button type="submit" class="btn">Rejestracja</button>
+	  </div>
+	</form>
+</div>
