@@ -1,0 +1,14 @@
+<table class="table">
+	<thead>
+		<th>Nazwa</th>
+		<th>Dostępne</th>
+	</thead>
+	<tbody>
+	<% @orders.each do |o| %>
+		<tr>
+			<td><%= o.name %></td>
+			<td><%= o.quantity %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>	
