@@ -20,6 +20,8 @@
 			<%= @item.content %>
 		</p>
 
+		<p><strong>Przychód:</strong> <%= @item.normalized_price %></p>
+
 		<p><strong>Status:</strong> <%= @item.status_name.html_safe %></p>
 		<% if @item.status == 0 %>
 		<p>

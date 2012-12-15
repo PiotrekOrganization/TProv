@@ -34,4 +34,9 @@ class Item < ActiveRecord::Base
   # 8 - saved after time has gone
 	end
 
+	def normalized_price
+		price = (self[:price].to_f / 100)
+		("%.2f" % price) + ' PLN'
+	end
+
 end

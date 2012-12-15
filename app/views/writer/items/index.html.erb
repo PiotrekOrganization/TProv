@@ -13,6 +13,7 @@
 			<th>ID</th>
 			<th>Nazwa</th>
 			<th>Status</th>
+			<th>Przychód</th>
 		</thead>
 		<tbody>
 		<% @items.each do |i| %>
@@ -20,6 +21,7 @@
 				<td>#<%= i.order.id %>/#<%= i.id %></td>
 				<td><%= link_to i.order.name, writer_item_path(i) %></td>
 				<td><%= i.status_name.html_safe %></td>
+				<td><%= i.normalized_price %></td>
 			</tr>
 		<% end %>
 		</tbody>
