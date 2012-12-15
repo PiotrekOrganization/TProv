@@ -4,21 +4,24 @@ Textprovider::Application.routes.draw do
 
   resources :users
 
-  resources :orders do
-    member do
-      get 'write'
-    end
-  end
+  resources :orders
 
-  resources :items do
-    member do
-      get 'write'
-      put 'written'
-    end
-  end
+  resources :items
 
   namespace :writer do
-    resources :items
+
+    resources :items do
+      get 'write'
+      put 'written'
+      get 'close'
+    end
+
+    resources :orders do
+      member do
+        get 'write'
+      end
+    end
+
   end
 
   # The priority is based upon order of creation:

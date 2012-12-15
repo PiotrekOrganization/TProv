@@ -30,7 +30,7 @@
 					<%= @order.name %>
 				</h1>
 
-				<p>Pozostały czas: <span class="timer-countdown"><%= @item.time_left %></span></p>
+				<p>Pozostały czas: <%= @item.time_left.html_safe %></p>
 				
 				<%= form_for @item, :url => {:action => 'written'} do |f| %>
 					<div style="border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px; margin-top: 10px; padding: 10px;">

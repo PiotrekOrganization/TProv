@@ -1,0 +1,7 @@
+<ul class="nav nav-tabs nav-stacked">
+  <li class="active"><a href="#">Moje teksty</a></li>
+  <li><%= link_to 'Wszystkie', writer_items_path %></li>
+  <li><%= link_to 'Otwarte', writer_items_path(:s => 0) %></li>
+  <li><%= link_to 'Oczekujące', writer_items_path(:s => 5)%></li>
+  <li><%= link_to 'Po czasie', writer_items_path(:s => 8)%></li>
+</ul>

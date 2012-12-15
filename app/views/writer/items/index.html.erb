@@ -1,0 +1,27 @@
+<div class="span2">
+  <%= render :partial => 'sidebar' %>
+</div>
+<div class="span10">
+	<%= render 'layouts/notifications' %>
+	<ul class="breadcrumb">
+	  <li><%= link_to 'Home', root_path %> <span class="divider">/</span></li>
+	  <li class="active">Teksty</li>
+	</ul>
+
+	<table class="table">
+		<thead>
+			<th>ID</th>
+			<th>Nazwa</th>
+			<th>Status</th>
+		</thead>
+		<tbody>
+		<% @items.each do |i| %>
+			<tr>
+				<td>#<%= i.order.id %>/#<%= i.id %></td>
+				<td><%= link_to i.order.name, writer_item_path(i) %></td>
+				<td><%= i.status_name.html_safe %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>	
+</div>

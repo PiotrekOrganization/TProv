@@ -1,11 +1,5 @@
 <div class="span2">
-  <ul class="nav nav-tabs nav-stacked">
-	  <li class="active"><a href="#">Moje teksty</a></li>
-	  <li><a href="#">Wszystkie</a></li>
-	  <li><a href="#">Otwarte</a></li>
-	  <li><a href="#">Oczekujące</a></li>
-	  <li><%= link_to 'Przeglądaj zlecenia', orders_path %></li>
-	</ul>
+  <%= render :partial => 'sidebar' %>
 </div>
 
 <div class="span10">
@@ -14,8 +8,7 @@
 
 		<ul class="breadcrumb">
 		  <li><%= link_to 'Home', root_path %> <span class="divider">/</span></li>
-		  <li><%= link_to 'Teksty', orders_path %> <span class="divider">/</span></li>
-		  <li><%= link_to @item.order.formal_name, '' %> <span class="divider">/</span></li>
+		  <li><%= link_to 'Teksty', writer_items_path %> <span class="divider">/</span></li>
 		  <li class="active">Mój tekst (<%= @item.formal_name %>)</li>
 		</ul>
 
@@ -26,5 +19,12 @@
 		<p>
 			<%= @item.content %>
 		</p>
+
+		<p><strong>Status:</strong> <%= @item.status_name.html_safe %></p>
+		<% if @item.status == 0 %>
+		<p>
+			<%= link_to 'Wyślij', writer_item_close_path(@item), {:class => 'btn btn-primary'} %>
+		</p>
+		<% end %>
 
 </div>
