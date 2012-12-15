@@ -1,0 +1,42 @@
+			<div class="span2">
+	      <ul class="nav nav-tabs nav-stacked">
+				  <li class="active"><a href="#">Zleceniodawca:</a></li>
+				  <li><a href="#">FooCompn</a></li>
+				  <li><a href="#">Oceny (8.9/10)</a></li>
+				  <li><%= link_to 'Przeglądaj zlecenia', orders_path %></li>
+				</ul>
+		<ul class="nav nav-tabs nav-stacked">
+				  <li class="active"><a href="#">Parametry zlecenia:</a></li>
+				  <li><a href="#">Cena: 1.68 PLN</a></li>
+				  <li><a href="#">1500 znaków</a></li>
+				  <li><a href="#">2-4 Lorem</a></li>
+				  <li><a href="#">1-2 Ipsum</a></li>
+				</ul>
+	    </div>
+	    <div class="span10">
+	      
+	      <%= render 'layouts/notifications' %>
+
+
+
+				<ul class="breadcrumb">
+				  <li><%= link_to 'Home', root_path %> <span class="divider">/</span></li>
+				  <li><%= link_to 'Zlecenia', orders_path %> <span class="divider">/</span></li>
+				  <li><%= link_to @order.formalName, order_path(@order) %> <span class="divider">/</span></li>
+				  <li class="active">Realizacja zlecenia</li>
+				</ul>
+
+				<h1>
+					<%= @order.name %>
+				</h1>
+
+				<p>Pozostały czas: 18:38</p>
+
+				<form>
+					<div style="border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px; margin-top: 10px;">
+						<textarea style="width: 100%; padding: 0; border:0; margin: 0; height: 300px;"></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary">Sprawdź i zapisz</button>
+				</form>
+
+	    </div>
