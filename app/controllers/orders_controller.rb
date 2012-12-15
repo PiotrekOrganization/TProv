@@ -9,8 +9,6 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 	end
 
-
-
 	def write 
 	# this method was used to 'Write' button on order#show
 
@@ -34,6 +32,7 @@ class OrdersController < ApplicationController
 			i = Item.new
 			i.order_id = @order.id
 			i.user_id = current_user.id
+			i.expires = DateTime.now + @order.ticket_time.to_i.seconds
 			i.save
 			redirect_to write_item_path(i)
 			return #extremely important !

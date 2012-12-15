@@ -1,0 +1,30 @@
+<div class="span2">
+  <ul class="nav nav-tabs nav-stacked">
+	  <li class="active"><a href="#">Moje teksty</a></li>
+	  <li><a href="#">Wszystkie</a></li>
+	  <li><a href="#">Otwarte</a></li>
+	  <li><a href="#">Oczekujące</a></li>
+	  <li><%= link_to 'Przeglądaj zlecenia', orders_path %></li>
+	</ul>
+</div>
+
+<div class="span10">
+  
+  <%= render 'layouts/notifications' %>
+
+		<ul class="breadcrumb">
+		  <li><%= link_to 'Home', root_path %> <span class="divider">/</span></li>
+		  <li><%= link_to 'Teksty', orders_path %> <span class="divider">/</span></li>
+		  <li><%= link_to @item.order.formal_name, '' %> <span class="divider">/</span></li>
+		  <li class="active">Mój tekst (<%= @item.formal_name %>)</li>
+		</ul>
+
+		<h1>
+			<%= @item.order.name %>
+		</h1>
+
+		<p>
+			<%= @item.content %>
+		</p>
+
+</div>

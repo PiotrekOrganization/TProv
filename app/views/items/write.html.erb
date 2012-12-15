@@ -22,7 +22,7 @@
 				<ul class="breadcrumb">
 				  <li><%= link_to 'Home', root_path %> <span class="divider">/</span></li>
 				  <li><%= link_to 'Zlecenia', orders_path %> <span class="divider">/</span></li>
-				  <li><%= link_to @order.formalName, order_path(@order) %> <span class="divider">/</span></li>
+				  <li><%= link_to @order.formal_name, order_path(@order) %> <span class="divider">/</span></li>
 				  <li class="active">Realizacja zlecenia</li>
 				</ul>
 
@@ -30,13 +30,13 @@
 					<%= @order.name %>
 				</h1>
 
-				<p>Pozostały czas: 18:38</p>
-
-				<form>
-					<div style="border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px; margin-top: 10px;">
-						<textarea style="width: 100%; padding: 0; border:0; margin: 0; height: 300px;"></textarea>
-					</div>
-					<button type="submit" class="btn btn-primary">Sprawdź i zapisz</button>
-				</form>
+				<p>Pozostały czas: <span class="timer-countdown"><%= @item.time_left %></span></p>
+				
+				<%= form_for @item, :url => {:action => 'written'} do |f| %>
+					<div style="border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px; margin-top: 10px; padding: 10px;">
+				  	<%= f.text_area :content, {:style => 'width: 100%; padding: 0; border:0; margin: 0; height: 300px;'} %>
+				  </div>
+				  <%= f.submit "Zapisz", {:class => 'btn btn-primary'} %>
+				<% end %>
 
 	    </div>

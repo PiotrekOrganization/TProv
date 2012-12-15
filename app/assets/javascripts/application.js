@@ -14,3 +14,60 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(document).ready( function() {
+	$('.timer-countdown').coundownTimer()
+})
+
+
+$.fn.coundownTimer = function() 
+{
+	var timer = $(this[0])
+	var time = parseInt(timer.html())
+	makeTime()
+
+	setInterval(function() 
+	{
+		time -= 1
+	    makeTime()
+  	}, 1000);
+
+	function makeTime()
+	{
+
+		if( time > (3600 * 24))
+		{
+			return printTime('powyżej 24 h')
+		}
+
+		parsed = new Date(time*1000)
+
+		hours = parsed.getUTCHours()
+		if( hours > 0)
+		{
+			return printTime(hours + ' h')
+		}
+
+		minutes = parsed.getUTCMinutes()
+		if( minutes > 0)
+		{
+			return printTime(minutes + ' min')
+
+		}
+
+		seconds = parsed.getUTCSeconds()
+		if( seconds > 0 ) 
+		{
+			return printTime(hours + ' min')
+		}
+		
+		return printTime('czas minął')
+
+	}
+
+	function printTime(time)
+	{
+		$(timer).html(time)
+	}
+
+}

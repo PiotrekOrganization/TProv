@@ -13,7 +13,12 @@ Textprovider::Application.routes.draw do
   resources :items do
     member do
       get 'write'
+      put 'written'
     end
+  end
+
+  namespace :writer do
+    resources :items
   end
 
   # The priority is based upon order of creation:
