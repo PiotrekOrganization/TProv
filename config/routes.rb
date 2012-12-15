@@ -1,5 +1,7 @@
 Textprovider::Application.routes.draw do
+  devise_for :admins
   devise_for :users
+  
   root :to => "home#index"
 
   resources :users
@@ -14,6 +16,7 @@ Textprovider::Application.routes.draw do
       get 'write'
       put 'written'
       get 'close'
+      get 'delete'
     end
 
     resources :orders do

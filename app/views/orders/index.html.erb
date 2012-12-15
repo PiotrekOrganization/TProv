@@ -33,12 +33,14 @@
 		<thead>
 			<th>Nazwa</th>
 			<th>Dostępne</th>
+			<th>Wynagrodzenie</th>
 		</thead>
 		<tbody>
 		<% @orders.each do |o| %>
 			<tr>
 				<td><%= link_to o.name, order_path(o) %></td>
 				<td><%= o.quantity %></td>
+				<td><%= o.normalized_price %> <small>(<%= o.price_per_signs %>)</small></td>
 			</tr>
 		<% end %>
 		</tbody>

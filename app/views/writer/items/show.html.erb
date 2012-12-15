@@ -25,7 +25,9 @@
 		<p><strong>Status:</strong> <%= @item.status_name.html_safe %></p>
 		<% if @item.status == 0 %>
 		<p>
+			<%= link_to 'Edytuj', writer_item_write_path(@item), {:class => 'btn btn-warning'} %>
 			<%= link_to 'Wyślij', writer_item_close_path(@item), {:class => 'btn btn-primary'} %>
+			<%= link_to 'Usuń', writer_item_delete_path(@item), {:class => 'btn btn-danger'}, :confirm => 'Jesteś pewien?' %>
 		</p>
 		<% end %>
 

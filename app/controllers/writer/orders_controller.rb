@@ -28,6 +28,8 @@ class Writer::OrdersController < Writer::WriterController
 			i = Item.new
 			i.order_id = @order.id
 			i.user_id = current_user.id
+			i.status = 0
+			i.price = @order.price
 			i.expires = DateTime.now + @order.ticket_time.to_i.seconds
 			i.save
 			redirect_to writer_item_write_path(i)

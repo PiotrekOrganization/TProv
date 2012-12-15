@@ -24,11 +24,11 @@
 				</h1>
 
 				<p>
-					<span class="text-success lead">1.68 PLN</span>
-					<small class="muted">1,12 PLN / 1000 znaków</small>
+					<span class="text-success lead"><%= @order.normalized_price %></span>
+					<small class="muted"><%= @order.price_per_signs %></small>
 				</p>
 				<p>
-					200 tekstów do końca
+					<%= @order.quantity %> tekstów do końca
 				</p>
 
 				<hr />

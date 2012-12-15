@@ -22,12 +22,12 @@
 				<ul class="breadcrumb">
 				  <li><%= link_to 'Home', root_path %> <span class="divider">/</span></li>
 				  <li><%= link_to 'Zlecenia', orders_path %> <span class="divider">/</span></li>
-				  <li><%= link_to @order.formal_name, order_path(@order) %> <span class="divider">/</span></li>
+				  <li><%= link_to @item.order.formal_name, order_path(@item.order) %> <span class="divider">/</span></li>
 				  <li class="active">Realizacja zlecenia</li>
 				</ul>
 
 				<h1>
-					<%= @order.name %>
+					<%= @item.order.name %>
 				</h1>
 
 				<p>Pozostały czas: <%= @item.time_left.html_safe %></p>
