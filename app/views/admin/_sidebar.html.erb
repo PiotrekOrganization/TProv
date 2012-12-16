@@ -18,3 +18,8 @@
 <ul class="nav nav-tabs nav-stacked">
 	<li class="active"><a href="#">Klienci</a></li>
 </ul>
+
+
+<ul class="nav nav-tabs nav-stacked">
+	<li><%= link_to "Wyloguj", destroy_admin_session_path, {:method => 'delete'} %></li>
+</ul>

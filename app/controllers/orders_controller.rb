@@ -2,7 +2,7 @@
 class OrdersController < ApplicationController
 
 	def index
-		@orders = Order.all
+		@orders = Order.where('quantity > 0')
 	end
 
 	def show

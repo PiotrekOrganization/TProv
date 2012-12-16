@@ -22,6 +22,11 @@ class Writer::OrdersController < Writer::WriterController
 
 			# tickets count - 1
 			@order.quantity = @order.quantity - 1
+			unless @order.valid?
+				flash[:alert] = 'Wystąpił błąd'
+				redirect_to order_path(@order)
+				return
+			end	
 			@order.save
 
 			# new item for this order and current user

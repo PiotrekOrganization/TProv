@@ -1,8 +1,17 @@
 # encoding: utf-8
 class Item < ActiveRecord::Base
+
   attr_accessible :content, :order_id, :user_id
+
   belongs_to :order
   belongs_to :user
+
+
+  validates :order_id, :presence => true
+  validates :user_id, :presence => true
+  validates :status, :presence => true
+  validates :price, :presence => true
+  validates :expires, :presence => true
 
   def time_left
   	left = self[:expires].to_datetime - DateTime.now
@@ -28,7 +37,7 @@ class Item < ActiveRecord::Base
   		when 8
   			'<span class="label label-important">Czas minął</span>'
       when 10
-        '<span class="label label-success">Potwierdzone</span>'
+        '<span class="label label-success">Zatwierdzone</span>'
   	end
 
   # status legend:

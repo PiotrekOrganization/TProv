@@ -16,9 +16,17 @@
 			<%= @item.order.name %>
 		</h1>
 
+		<% if @item.status == 0 %>
+			<p>Pozostały czas: <%= @item.time_left.html_safe %></p>
+		<% end %>
+
+		<hr />
+
 		<p>
 			<%= @item.content %>
 		</p>
+
+		<hr />
 
 		<p><strong>Przychód:</strong> <%= @item.normalized_price %></p>
 
@@ -29,6 +37,15 @@
 			<%= link_to 'Wyślij', writer_item_close_path(@item), {:class => 'btn btn-primary'} %>
 			<%= link_to 'Usuń', writer_item_delete_path(@item), {:class => 'btn btn-danger'}, :confirm => 'Jesteś pewien?' %>
 		</p>
+		<% end %>
+
+		<% if @item.status == 8 and @item.order.quantity > 0 %>
+			<p>Pomimo tego, że czas na realizację przyznanego Ci tekstu dobiegł końca, to zlecenie jest nadal otwarte i możesz dokończyć pracę.</p>
+			<%= link_to 'Dokończ tekst', writer_item_refresh_path(@item), {:class => 'btn btn-primary'} %> 
+		<% end %>
+
+		<% if @item.status == 8 and @item.order.quantity == 0 %>
+			<p>Zlecenie już się zakończyło.</p>
 		<% end %>
 
 </div>

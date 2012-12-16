@@ -11,4 +11,17 @@ class User < ActiveRecord::Base
 
   has_many :items
 
+  def balance
+  	sum = 0
+  	self.items.where(:status => 10).each do |item|
+  		sum += item.price
+  	end
+  	sum
+  end
+
+  def normalized_balance
+		price = (self.balance.to_f / 100)
+		("%.2f" % price) + ' PLN'
+	end
+
 end

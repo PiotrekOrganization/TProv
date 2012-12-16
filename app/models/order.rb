@@ -1,11 +1,13 @@
 # encoding: utf-8
 class Order < ActiveRecord::Base
-  attr_accessible :quantity, :user_id, :name, :signs, :description, :price
+  attr_accessible :quantity, :user_id, :name, :signs, :description, :price, :ticket_time
   has_many :items
   belongs_to :admin
 
-  validates :quantity, :numericality => {:only_integer => true, :greater_than => 0}
+  validates :ticket_time, :presence => true
+  validates :quantity, :numericality => {:only_integer => true, :greater_than => -1}
   validates :name, :length => { :in => 14..200 }
+  validates :ticket_time, :numericality => {:only_integer => true, :greater_than => 1799}
 
   def formal_name
    	self[:name] + ' (numer: #' + self[:id].to_s + ')'

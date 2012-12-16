@@ -28,6 +28,7 @@ Textprovider::Application.routes.draw do
       put 'written'
       get 'close'
       get 'delete'
+      get 'refresh'
     end
 
     resources :orders do

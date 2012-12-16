@@ -6,12 +6,14 @@
 		<thead>
 			<tr>
 				<th>Adres e-mail</th>
+				<th>Stan konta</th>
 			</tr>
 		</thead>
 		<tbody>	
 		<% for user in @users %>
 			<tr>
 				<td><%= user.email %></td>
+				<td><%= user.normalized_balance %></td>
 			</tr>
 		<% end %>
 		</tbody>
