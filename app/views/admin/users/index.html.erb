@@ -1,0 +1,19 @@
+<div class="span2">
+	<%= render :partial => 'admin/sidebar' %>
+</div>
+<div class="span10">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Adres e-mail</th>
+			</tr>
+		</thead>
+		<tbody>	
+		<% for user in @users %>
+			<tr>
+				<td><%= user.email %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>

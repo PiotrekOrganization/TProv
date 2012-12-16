@@ -22,7 +22,7 @@
 		      </a>
 		 
 		      <!-- Be sure to leave the brand out there if you want it shown -->
-		      <%= link_to 'Text Provider', root_path, {:class => 'brand'} %>
+		      <%= link_to 'TextWorks', root_path, {:class => 'brand'} %>
 		 
 		      <!-- Everything you want hidden at 940px or less, place within here -->
 		      <div class="nav-collapse collapse">
@@ -33,13 +33,18 @@
 		      <ul class="nav pull-right">
 		      <% if user_signed_in? %>
 		      	<%= render 'layouts/signed_in_topbar' %>
-					  <li>
-					  <%= link_to('Wyloguj', destroy_user_session_path, :method => :delete) %>        
-					  </li>
+				  	<li>
+				  		<%= link_to('Wyloguj', destroy_user_session_path, :method => :delete) %>        
+				  	</li>
+					<% elsif admin_signed_in? %>
+						<li>
+				  		<%= link_to 'Panel administracyjny', admin_dashboard_index_path %>
+				  	</li>
+
 					<% else %>
-					  <li>
-					  <%= link_to('Logowanie', new_user_session_path)  %>  
-					  </li>
+				  	<li>
+				  		<%= link_to('Logowanie', new_user_session_path)  %>  
+				  	</li>
 					<% end %>
 					</ul>
 		      		
@@ -53,6 +58,19 @@
 	  	<%= yield %>
 	    
 	  </div>
+	</div>
+
+	<div class="row-fluid" style="margin-top: 20px">
+		<div class='span12'>
+			<div style='padding: 0 20px;'>
+				<hr />
+				<p style="text-align:center">
+					&copy; Copywright 2013 TextWorks. Wszystkie prawa zastrzeżone.<br />
+					<a href="#">Regulamin</a> |
+					<a href="#">Polityka prywatności</a>
+				 </p>
+			</div>
+		</div>
 	</div>
 
 </body>

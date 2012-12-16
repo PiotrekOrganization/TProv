@@ -1,0 +1,25 @@
+<div class="span2">
+	<%= render :partial => 'admin/sidebar' %>
+</div>
+<div class="span10">
+	<%= render :partial => 'layouts/notifications' %>
+	<%= form_for [:admin, @order] do |f| %>
+
+		<h4>Tytuł zlecenia</h4>
+		<p><%= f.text_field :name %></p>
+
+		<h4>Opis zlecenia</h4>
+		<p style="border-radius: 4px; border: 1px solid #ccc; padding: 10px;"><%= f.text_area :description, {:style => 'width: 100%; padding: 0; border: 0; height: 200px'} %></p>
+
+		<h4>Wynagrodzenie</h4>
+		<p><%= f.text_field :price %></p>
+
+		<h4>Ilość znaków</h4>
+		<p><%= f.text_field :signs %></p>
+
+		<h4>Ilość tekstów</h4>
+		<p><%= f.text_field :quantity %></p>
+
+		<p><%= f.submit "Utwórz", {:class => 'btn btn-primary'} %></p>
+	<% end %>
+</div>
