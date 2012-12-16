@@ -5,6 +5,7 @@ class Item < ActiveRecord::Base
 
   belongs_to :order
   belongs_to :user
+  has_many :conflicts
 
 
   validates :order_id, :presence => true
@@ -32,6 +33,8 @@ class Item < ActiveRecord::Base
   	case self[:status].to_i
   		when 0
   			'<span class="label">Otwarte</span>'
+      when 3
+        '<span class="label label-important">Odrzucone</span>'
   		when 5
   			'<span class="label label-info">Zamknięte, oczekuje na potwierdzenie</span>'
   		when 8
@@ -42,6 +45,7 @@ class Item < ActiveRecord::Base
 
   # status legend:
   # 0 - open, after created
+  # 3 - get back from status 5 becouse of alert ser by admin
   # 5 - saved and waiting for check
   # 8 - saved after time has gone
   # 10 - confirmed, account balance increased

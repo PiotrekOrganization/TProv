@@ -1,0 +1,31 @@
+<div class="span2">
+  <%= render :partial => 'admin/sidebar' %>
+</div>
+<div class="span10">
+	<%= render 'layouts/notifications' %>
+	<h1>
+		Odrzuć tekst (<%= @item.formal_name %>)
+	</h1>
+
+	<h3><%= @item.order.formal_name %></h3>
+
+	<p><strong>Zleceniodawca:</strong> <%= @item.order.creator.email %></p>
+	<p><strong>Autor:</strong> <%= @item.user.email %></p>
+
+	<hr />
+	<p>
+		<%= @item.content %>
+	</p>
+	<hr />
+	<p><strong>Przychód:</strong> <%= @item.normalized_price %></p>
+	<p><strong>Status:</strong> <%= @item.status_name.html_safe %></p>
+
+	<%= form_for [:admin, @conflict] do |f| %>
+		<%= f.hidden_field :item_id %>
+		<h4>Powód odrzucenia</h4>
+		<p style="border-radius: 4px; border: 1px solid #ccc; padding: 10px;"><%= f.text_area :content, {:style => 'width: 100%; padding: 0; border: 0; height: 200px'} %></p>
+
+		<%= f.submit 'Wyślij', {:class => 'btn btn-primary'} %>
+	<% end %>
+	
+</div>

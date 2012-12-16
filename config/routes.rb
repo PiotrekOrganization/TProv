@@ -18,6 +18,7 @@ Textprovider::Application.routes.draw do
         get 'conflict'
       end
     end
+    resources :conflicts
   end
 
 

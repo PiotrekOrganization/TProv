@@ -22,4 +22,12 @@ class Admin::ItemsController < Admin::AdminController
 		render :show
 	end
 
+	def conflict
+		@item = Item.where(
+			:id => params[:id],
+			:status => 5
+		).first
+		@conflict = @item.conflicts.new
+	end
+
 end
