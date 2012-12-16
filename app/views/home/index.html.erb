@@ -7,10 +7,6 @@
 	  <p>
 	    <%= link_to 'Szukaj zleceń', orders_path, {:class => 'btn btn-primary btn-large'} %>
 	  </p>
-	  <p>Potrzebujesz artykułów, tekstów do pozycjonowania?</p>
-	  <p>
-	  	<%= link_to 'Dodaj zlecenie', orders_path, {:class => 'btn btn-primary btn-large'} %>
-	  </p>
 	</div>
 </div>
 <div class="span5">
@@ -22,25 +18,20 @@
 	<% else %>
 		<h2>Rejestracja</h2>
 		<p class="lead">Pierwszy raz?</p>
-		<form>
+		<%= form_for("user", :url => user_registration_path) do |f| %>
 			<div>
-		    <label class="control-label" for="inputEmail">Email</label>
-		    <input type="text" id="inputEmail">
+				<label class="control-label">Adres e-mail</label>
+		  	<%= f.text_field :email %>
+			</div>
+			<div>
+				<label class="control-label">Hasło:</label>
+		  	<%= f.password_field :password %>
 		  </div>
 		  <div>
-		    <label class="control-label" for="inputPassword">Hasło</label>
-		    <input type="password" id="inputPassword">
+		  	<label class="control-label">Powtórz hasło:</label>
+		  	<%= f.password_field :password_confirmation %>
 		  </div>
-		  <div>
-		    <label class="control-label" for="inputPasswordAgain">Powtórz hasło</label>
-		    <input type="password" id="inputPasswordAgain">
-		  </div>
-		  <div>
-		    <label class="checkbox">
-	        <input type="checkbox"> Zapoznałem się z <a href="#">Regulaminem</a>
-	      </label>
-	      <button type="submit" class="btn">Rejestracja</button>
-		  </div>
-		</form>
+		  <%= f.submit 'Rejestracja', {:class => 'btn btn-primary'} %>
+		<% end %>
 	<% end %>
 </div>
