@@ -48,4 +48,24 @@
 			<p>Zlecenie już się zakończyło.</p>
 		<% end %>
 
+		<% unless @item.conflicts.empty? %>
+		<hr />
+		<h3>Komentarze</h3>
+	<% end %>
+
+	<% for element in @item.conflicts %>
+		<p>
+			<% if element.author == current_user %>
+				<strong><%= element.author.email %></strong>
+			<% else %>
+				<strong>Administracja</strong>
+			<% end %>
+			<small>	
+				<%= distance_of_time_in_words_to_now(element.updated_at.to_time,) %> ago
+			</small>
+		<p>
+		<div class='well well-small'><%= element.content %></div>
+		<hr />
+	<% end %>
+
 </div>
