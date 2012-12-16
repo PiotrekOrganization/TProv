@@ -8,6 +8,7 @@
 			<th>Nazwa</th>
 			<th>Dostępne</th>
 			<th>Wynagrodzenie</th>
+			<th>Twórca</th>
 		</thead>
 		<tbody>
 		<% @orders.each do |o| %>
@@ -15,6 +16,7 @@
 				<td><%= link_to o.name, order_path(o) %></td>
 				<td><%= o.quantity %></td>
 				<td><%= o.normalized_price %> <small>(<%= o.price_per_signs %>)</small></td>
+				<td><%= o.creator.email %></td>
 			</tr>
 		<% end %>
 		</tbody>

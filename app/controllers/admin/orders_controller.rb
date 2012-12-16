@@ -10,6 +10,7 @@ class Admin::OrdersController < Admin::AdminController
 
 	def create
 		@order = Order.new(params[:order])
+		@order.admin_id = current_admin.id
 		if @order.valid?
 			@order.save
 			redirect_to admin_orders_path

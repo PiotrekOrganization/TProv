@@ -2,6 +2,7 @@
 class Order < ActiveRecord::Base
   attr_accessible :quantity, :user_id, :name, :signs, :description, :price
   has_many :items
+  belongs_to :admin
 
   validates :quantity, :numericality => {:only_integer => true, :greater_than => 0}
   validates :name, :length => { :in => 14..200 }
@@ -19,6 +20,14 @@ class Order < ActiveRecord::Base
 		price = (self[:price].to_f / 100)
 		price = price * (1000.0 / self[:signs].to_i)
 		("%.2f" % price) + ' PLN / 1000 znaków'
+	end
+
+	def creator
+		if self[:admin_id].nil?
+			Admin.find(self[:admin_id])
+		else
+			Admin.find(self[:admin_id])
+		end
 	end
 
 end

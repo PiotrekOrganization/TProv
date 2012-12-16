@@ -1,0 +1,30 @@
+<div class="span2">
+  <%= render :partial => 'admin/sidebar' %>
+</div>
+<div class="span10">
+	<%= render 'layouts/notifications' %>
+	<h1>
+		<%= @item.order.name %>
+	</h1>
+
+	<p><strong>Zleceniodawca:</strong> <%= @item.order.creator.email %></p>
+	<p><strong>Autor:</strong> <%= @item.user.email %></p>
+
+	<hr />
+	
+	<p>
+		<%= @item.content %>
+	</p>
+
+	<hr />
+
+	<p><strong>Przychód:</strong> <%= @item.normalized_price %></p>
+
+	<p><strong>Status:</strong> <%= @item.status_name.html_safe %></p>
+	<% if @item.status == 5 %>
+	<p>
+		<%= link_to 'Zatwierdź', confirm_admin_item_path(@item), {:class => 'btn btn-success'}, :confirm => 'Jesteś pewien?' %>
+		<%= link_to 'Odrzuć', conflict_admin_item_path(@item), {:class => 'btn btn-danger'}, :confirm => 'Jesteś pewien?' %>
+	</p>
+	<% end %>
+</div>

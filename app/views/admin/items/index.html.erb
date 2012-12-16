@@ -1,0 +1,26 @@
+<div class="span2">
+  <%= render :partial => 'admin/sidebar' %>
+</div>
+<div class="span10">
+	<%= render 'layouts/notifications' %>
+	<table class="table">
+		<thead>
+			<th>ID</th>
+			<th>Nazwa</th>
+			<th>Status</th>
+			<th>Wartość</th>
+			<th>Autor</th>
+		</thead>
+		<tbody>
+		<% @items.each do |i| %>
+			<tr>
+				<td>#<%= i.order.id %>/#<%= i.id %></td>
+				<td><%= link_to i.order.name, admin_item_path(i) %></td>
+				<td><%= i.status_name.html_safe %></td>
+				<td><%= i.normalized_price %></td>
+				<td><%= link_to i.user.email, admin_user_path(i.user) %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>	
+</div>

@@ -5,6 +5,8 @@
 
 <ul class="nav nav-tabs nav-stacked">
 	<li class="active"><a href="#">Teksty</a></li>
+	<li><%= link_to 'Lista', admin_items_path %></li>
+	<li><%= link_to 'Do zatwierdzenia', admin_items_path(:status => 5) %></li>
 </ul>
 
 <ul class="nav nav-tabs nav-stacked">

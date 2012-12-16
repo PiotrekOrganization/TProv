@@ -2,6 +2,7 @@
 class Item < ActiveRecord::Base
   attr_accessible :content, :order_id, :user_id
   belongs_to :order
+  belongs_to :user
 
   def time_left
   	left = self[:expires].to_datetime - DateTime.now
@@ -26,12 +27,15 @@ class Item < ActiveRecord::Base
   			'<span class="label label-info">Zamknięte, oczekuje na potwierdzenie</span>'
   		when 8
   			'<span class="label label-important">Czas minął</span>'
+      when 10
+        '<span class="label label-success">Potwierdzone</span>'
   	end
 
   # status legend:
   # 0 - open, after created
   # 5 - saved and waiting for check
   # 8 - saved after time has gone
+  # 10 - confirmed, account balance increased
 	end
 
 	def normalized_price

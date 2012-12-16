@@ -12,6 +12,12 @@ Textprovider::Application.routes.draw do
     resources :dashboard
     resources :users
     resources :orders
+    resources :items do
+      member do
+        get 'confirm'
+        get 'conflict'
+      end
+    end
   end
 
 
