@@ -1,0 +1,18 @@
+<div class="span2">
+ 	<ul class="nav nav-tabs nav-stacked">
+		<li class="active"><a href="#">Menu:</a></li>
+		<li><%= link_to 'Szukaj zleceń', orders_path %></li>
+	</ul>
+</div>
+<div class="span10">
+	<%= render 'layouts/notifications' %>
+	<ul class="breadcrumb">
+	  <li><%= link_to 'Home', root_path %> <span class="divider">/</span></li>
+	  <li class="active"><%= @page.name %></li>
+	</ul>
+
+	<div class="page_content">
+		<%= @page.content.html_safe %>
+	</div>
+
+</div>
