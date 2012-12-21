@@ -31,6 +31,14 @@
 		  	<label class="control-label">Powtórz hasło:</label>
 		  	<%= f.password_field :password_confirmation %>
 		  </div>
+		  <div>
+		  	<p>
+		  	<label class="checkbox">
+		  	<%= f.check_box :confirmed_terms %>
+		  	Przeczytałem i akceptuję regulamin
+		  	</label>
+		  	<p>
+		  </div>
 		  <%= f.submit 'Rejestracja', {:class => 'btn btn-primary'} %>
 		<% end %>
 	<% end %>

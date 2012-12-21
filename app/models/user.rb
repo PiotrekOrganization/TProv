@@ -7,7 +7,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :address, :firstname, :lastname, :type
+  attr_accessible :address, :firstname, :lastname, :type, :confirmed_terms
+
+  validates :confirmed_terms, :numericality => {:only_integer => true, :greater_than => 0}
 
   has_many :items
 
