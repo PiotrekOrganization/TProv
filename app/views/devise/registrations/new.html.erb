@@ -1,24 +1,10 @@
-<div class="span8">
-	<div class="hero-unit">
-	  <h1>Witaj!</h1>
-	  <p>TextProvider to platforma do realizacji zleceń copywriterskich</p>
-	  <h3>Dla kogo</h3>
-	  <p>Piszesz teksty? Jesteś lub chcesz zostać copywriterem?</p>
-	  <p>
-	    <%= link_to 'Szukaj zleceń', orders_path, {:class => 'btn btn-primary btn-large'} %>
-	  	<a href="#" class="btn btn-success btn-large">Jak to działa?</a>
-	  </p>
-	</div>
-</div>
-<div class="span4">
-	<% if user_signed_in? %>
-		<h3>Zalogowany jako:</h3>
-		<p class="lead">
-			<%= current_user.email %>
-		</p>
-	<% else %>
+	<div style="padding: 30px"></div>
+	<div class="span5 offset1">
 		<h2>Rejestracja</h2>
-		<p class="lead">Pierwszy raz?</p>
+		<p>Po utworzeniu konta będziesz mógł pisać pierwsze teksty i otrzymywać za nie wynagrodzenie w ramach salda konta.</p>
+		<p>Na tym etapie nie musisz podawać żadnych danych osobowych. Będą one potrzebne, kiedy zechcesz wypłacić zgromadzone środki.</p>
+	</div>
+	<div class="span3 offset1">
 		<%= form_for("user", :url => user_registration_path) do |f| %>
 			<div>
 				<label class="control-label">Adres e-mail</label>
@@ -42,5 +28,4 @@
 		  </div>
 		  <%= f.submit 'Rejestracja', {:class => 'btn btn-primary'} %>
 		<% end %>
-	<% end %>
-</div>
+	</div>
