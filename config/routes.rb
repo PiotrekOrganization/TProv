@@ -6,6 +6,7 @@ Textprovider::Application.routes.draw do
 
   resources :orders
   resources :items
+  resources :pages
 
   namespace :admin do
     root :to => 'dashboard#index'
@@ -19,6 +20,7 @@ Textprovider::Application.routes.draw do
       end
     end
     resources :conflicts
+    resources :pages
   end
 
 
