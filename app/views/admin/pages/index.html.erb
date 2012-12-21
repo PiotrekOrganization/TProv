@@ -1,0 +1,24 @@
+<div class="span2">
+	<%= render :partial => 'admin/sidebar' %>
+</div>
+<div class="span10">
+	<%= render 'layouts/notifications' %>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Tytuł</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>	
+		<% for page in @pages %>
+			<tr>
+				<td><%= page.id %></td>
+				<td><%= link_to page.name, edit_admin_page_path(page) %></td>
+				<td><%= link_to 'Usuń', admin_page_path(page), {:method => 'delete', :confirm => 'Czy jesteś pewien?', :class => 'btn btn-danger'} %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>

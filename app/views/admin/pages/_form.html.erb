@@ -1,0 +1,12 @@
+<%= form_for [:admin, @page] do |f| %>
+	<h4>Tytuł strony</h4>
+	<p>
+		<%= f.text_field :name %>
+	</p>
+	<h4>Treść strony</h4>
+	<p style="border-radius: 4px; border: 1px solid #ccc; padding: 10px;"><%= f.text_area :content, {:style => 'width: 100%; padding: 0; border: 0; height: 200px'} %></p>
+	<p>
+	<p>
+		<%= f.submit 'Zapisz', {:class => 'btn btn-primary'} %>
+	</p>
+<% end %>
