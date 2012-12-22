@@ -1,27 +1,47 @@
+<% if resource_name == 'user' %>
+	<div class="span6 offset3">
+		<h1>Logowanie</h1>
 
-<div class="span6 offset3">
-	<h1>Logowanie</h1>
-
-	<%= form_for("user", :url => user_session_path) do |f| %>
-		<p>
-			<%= f.text_field :email, {:placeholder => 'Adres e-mail'} %>
-			<%= f.password_field :password, {:placeholder => 'Hasło'} %>
-		</p>
-		<p>
-			<label class="checkbox">
-				<%= f.check_box :remember_me %>
-				Zapamiętaj mnie
-			</label>
-		</p>
-		<%= f.submit 'Zaloguj', {:class => 'btn btn-primary'} %>
-	<% end %>
+		<%= form_for("user", :url => user_session_path) do |f| %>
+			<p>
+				<%= f.text_field :email, {:placeholder => 'Adres e-mail'} %>
+				<%= f.password_field :password, {:placeholder => 'Hasło'} %>
+			</p>
+			<p>
+				<label class="checkbox">
+					<%= f.check_box :remember_me %>
+					Zapamiętaj mnie
+				</label>
+			</p>
+			<%= f.submit 'Zaloguj', {:class => 'btn btn-primary'} %>
+		<% end %>
 
 
-		
-	  <%= link_to "Zapomniałem hasła", new_password_path('user') %>
-	  <h3>Nie masz konta?</h3>
-	  <p>
-	  	<%= link_to "Rejestracja", new_user_registration_path, {:class => 'btn btn-success'} %>
-	  </p>
+			
+		  <%= link_to "Zapomniałem hasła", new_password_path('user') %>
+		  <h3>Nie masz konta?</h3>
+		  <p>
+		  	<%= link_to "Rejestracja", new_user_registration_path, {:class => 'btn btn-success'} %>
+		  </p>
 
-</div>
+	</div>
+<% else %>
+	<div class="span6 offset3">
+		<h1>Logowanie</h1>
+
+		<%= form_for("admin", :url => admin_session_path) do |f| %>
+			<p>
+				<%= f.text_field :email, {:placeholder => 'Adres e-mail'} %>
+				<%= f.password_field :password, {:placeholder => 'Hasło'} %>
+			</p>
+			<p>
+				<label class="checkbox">
+					<%= f.check_box :remember_me %>
+					Zapamiętaj mnie
+				</label>
+			</p>
+			<%= f.submit 'Zaloguj', {:class => 'btn btn-primary'} %>
+		<% end %>
+	</div>
+
+<% end %>
