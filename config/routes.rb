@@ -34,6 +34,12 @@ Textprovider::Application.routes.draw do
       get 'refresh'
     end
 
+    resources :payments do
+      collection do
+        get 'make'
+      end
+    end
+
     resources :orders do
       member do
         get 'write'

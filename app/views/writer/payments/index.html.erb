@@ -1,0 +1,16 @@
+<div class="span2">
+  <%= render :partial => 'sidebar' %>
+</div>
+<div class="span10">
+	<%= render 'layouts/notifications' %>
+	<ul class="breadcrumb">
+	  <li><%= link_to 'Home', root_path %> <span class="divider">/</span></li>
+	  <li class="active">Teksty</li>
+	</ul>
+
+	<h2>Stan konta</h2>
+	<p class="lead"><%= current_user.normalized_balance %></p>
+	<hr />
+	<%= link_to 'Wypłata', make_writer_payments_path, {:class => 'btn btn-primary'} %>
+
+</div>
