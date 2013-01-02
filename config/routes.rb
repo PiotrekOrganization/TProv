@@ -8,6 +8,9 @@ Textprovider::Application.routes.draw do
   resources :items
   resources :pages
 
+  match 'p/:slug' => 'pages#show'
+
+
   namespace :admin do
     root :to => 'dashboard#index'
     resources :dashboard
