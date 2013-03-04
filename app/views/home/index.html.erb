@@ -6,7 +6,7 @@
 	  <p>Piszesz teksty? Jesteś lub chcesz zostać copywriterem?</p>
 	  <p>
 	    <%= link_to 'Szukaj zleceń', orders_path, {:class => 'btn btn-primary btn-large'} %>
-	  	<a href="#" class="btn btn-success btn-large">Jak to działa?</a>
+	  	<a href="<%= root_url %>p/jak-to-dziala" class="btn btn-success btn-large">Jak to działa?</a>
 	  </p>
 	</div>
 </div>
@@ -36,7 +36,7 @@
 		  	<p>
 		  	<label class="checkbox">
 		  	<%= f.check_box :confirmed_terms %>
-		  	Przeczytałem i akceptuję regulamin
+		  	Przeczytałem i akceptuję <a href="<%= root_url %>p/regulamin">regulamin</a>
 		  	</label>
 		  	<p>
 		  </div>

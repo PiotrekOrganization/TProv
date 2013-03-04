@@ -22,7 +22,7 @@
 		      </a>
 		 
 		      <!-- Be sure to leave the brand out there if you want it shown -->
-		      <%= link_to 'TextWorks', root_path, {:class => 'brand'} %>
+		      <%= link_to 'TextProvider', root_path, {:class => 'brand'} %>
 		 
 		      <!-- Everything you want hidden at 940px or less, place within here -->
 		      <div class="nav-collapse collapse">
@@ -66,8 +66,8 @@
 				<hr />
 				<p style="text-align:center">
 					&copy; Copywright 2013 TextWorks. Wszystkie prawa zastrzeżone.<br />
-					<a href="#">Regulamin</a> |
-					<a href="#">Polityka prywatności</a>
+					<a href="<%= root_url %>p/regulamin">Regulamin</a> |
+					<a href="<%= root_url %>p/polityka-prywatnosci">Polityka prywatności</a>
 				 </p>
 			</div>
 		</div>
