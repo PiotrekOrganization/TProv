@@ -18,11 +18,7 @@ development:
   database: textprovider_development
   pool: 5
   username: piotr
-<<<<<<< HEAD
-  password: sta123art
-=======
   password:
->>>>>>> 3739b9c8b8279cf3fe7500d7512f57a39753b914
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -48,11 +44,7 @@ test:
   database: textprovider_test
   pool: 5
   username: piotr
-<<<<<<< HEAD
-  password: sta123art
-=======
   password:
->>>>>>> 3739b9c8b8279cf3fe7500d7512f57a39753b914
 
 production:
   adapter: postgresql
@@ -60,8 +52,4 @@ production:
   database: textprovider_production
   pool: 5
   username: piotr
-<<<<<<< HEAD
-  password: sta123art
-=======
   password:
->>>>>>> 3739b9c8b8279cf3fe7500d7512f57a39753b914
