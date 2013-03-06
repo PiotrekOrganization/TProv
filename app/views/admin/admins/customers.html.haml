@@ -1,0 +1,13 @@
+%h1 Klienci
+%table.table
+	%thead
+		%tr
+			%th email
+			%th aktywne zlecenia
+			%th status
+	%tbody
+		- for customer in @customers
+			%tr
+				%td= customer.email
+				%td= customer.active_orders.size
+				%td= customer.status_label.html_safe

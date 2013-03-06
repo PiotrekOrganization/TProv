@@ -13,9 +13,15 @@ Textprovider::Application.routes.draw do
 
   namespace :admin do
     root :to => 'dashboard#index'
+    match "customers" => 'admins#customers'
     resources :dashboard
     resources :users
-    resources :orders
+    resources :orders do
+      member do
+        get 'close'
+      end
+    end
+    resources :admins
     resources :items do
       member do
         get 'confirm'
@@ -24,6 +30,8 @@ Textprovider::Application.routes.draw do
     end
     resources :conflicts
     resources :pages
+    match "balance_history" => "balance_history#index"
+    post "orders/:id" => "orders#export"
   end
 
 

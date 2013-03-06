@@ -1,14 +1,14 @@
-<div class="span2">
-  <%= render :partial => 'admin/sidebar' %>
-</div>
-<div class="span10">
+
 	<%= render 'layouts/notifications' %>
 	<h1>
 		<%= @item.order.name %>
 	</h1>
 
 	<p><strong>Zleceniodawca:</strong> <%= @item.order.creator.email %></p>
-	<p><strong>Autor:</strong> <%= @item.user.email %></p>
+
+	<% if current_admin.admin? %>
+		<p><strong>Autor:</strong> <%= @item.user.email %></p>
+	<% end %>
 
 	<hr />
 	
@@ -18,7 +18,7 @@
 
 	<hr />
 
-	<p><strong>Przychód:</strong> <%= @item.normalized_price %></p>
+	<p><strong>Wartość:</strong> <%= @item.normalized_price %></p>
 
 	<p><strong>Status:</strong> <%= @item.status_name.html_safe %></p>
 	<% if @item.status == 5 %>
@@ -45,6 +45,3 @@
 		<div class='well well-small'><%= element.content %></div>
 		<hr />
 	<% end %>
-
-
-</div>

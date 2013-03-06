@@ -1,0 +1,19 @@
+%h1 Historia wpływów i obciążeń
+%p 
+	Saldo konta:
+	= current_admin.formatted_balance 
+
+%table.table
+	%thead
+		%tr
+			%th Data
+			%th Kwota
+			%th Opis
+			%th 
+	%tbody
+		- for balance in current_admin.balance_histories
+			%tr{ :class => balance.row_class }
+				%td= balance.created_at
+				%td= balance.formatted_value
+				%td= balance.comment
+				%td= link_to "Link do tekstu", admin_item_path(balance.item)

@@ -7,6 +7,7 @@ class Item < ActiveRecord::Base
   belongs_to :user
   has_many :conflicts
 
+  default_scope order('created_at DESC')
 
   validates :order_id, :presence => true
   validates :user_id, :presence => true

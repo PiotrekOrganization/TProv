@@ -1,0 +1,39 @@
+%h2
+	= @order.name
+	%small
+		pozostało tekstów:
+		= @order.quantity
+%p
+	= link_to "Edytuj", edit_admin_order_path(@order), {:class => 'btn btn-warning'}
+	- if @order.quantity > 0
+		= link_to "Zakończ", close_admin_order_path(@order), {:class => 'btn btn-info', :confirm => "Jesteś pewien?"}
+
+%h4 Wynagrodzenie
+%p
+	= @order.normalized_price
+	%small= @order.price_per_signs
+
+- if current_admin.admin?
+	%h4 Twórca
+	%p= @order.creator.email
+
+%h4 Opis
+%div.well= @order.description
+
+%h4 Teksty
+= form_tag admin_order_path(@order.id) do |f|
+	%table.table
+		%thead
+			%tr
+				%th{ :style => "width: 20px;"}
+				%th Data
+				%th
+		%tbody
+			- for item in @order.completed_items
+				%tr
+					%td
+						%input{ :type => "checkbox", :name => "item[#{item.id}]", :checked => "checked" }
+					%td= item.created_at
+					%td= link_to 'Zobacz tekst', admin_item_path(item)
+	%p				
+		%input{:class => 'btn btn-submit', :value => "Eksportuj", :type => "submit"}

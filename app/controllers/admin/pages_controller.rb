@@ -1,6 +1,14 @@
 # encoding: utf-8
 class Admin::PagesController < Admin::AdminController
 
+	before_filter :super_admin
+
+	def super_admin
+		unless current_admin.admin?
+			raise ActionController::RoutingError.new('Not Found')
+		end
+	end
+
 	def index
 		@pages = Page.all
 	end

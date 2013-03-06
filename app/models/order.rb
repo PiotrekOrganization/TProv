@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
   attr_accessible :quantity, :user_id, :name, :signs, :description, :price, :ticket_time
   has_many :items
   belongs_to :admin
+  
+  default_scope order('created_at DESC')
 
   validates :ticket_time, :presence => true
   validates :quantity, :presence => true
@@ -28,11 +30,11 @@ class Order < ActiveRecord::Base
 	end
 
 	def creator
-		if self[:admin_id].nil?
-			Admin.find(self[:admin_id])
-		else
-			Admin.find(self[:admin_id])
-		end
+		Admin.find(self[:admin_id])
+	end
+
+	def completed_items
+		Item.where( :order_id => self[:id], :status => 10 )
 	end
 
 end

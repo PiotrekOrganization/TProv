@@ -1,7 +1,9 @@
+<% if current_admin.admin? %>
 <ul class="nav nav-tabs nav-stacked">
 	<li class="active"><a href="#">Użytkownicy</a></li>
 	<li><%= link_to 'Lista', admin_users_path %></li>
 </ul>
+<% end %>
 
 <ul class="nav nav-tabs nav-stacked">
 	<li class="active"><a href="#">Teksty</a></li>
@@ -15,16 +17,25 @@
 	<li><%= link_to 'Dodaj nowe', new_admin_order_path %></li>
 </ul>
 
+<% if current_admin.admin? %>
 <ul class="nav nav-tabs nav-stacked">
 	<li class="active"><a href="#">Strony</a></li>
 	<li><%= link_to 'Lista', admin_pages_path %></li>
 	<li><%= link_to 'Nowa strona', new_admin_page_path %></li>
 </ul>
+<% end %>
 
+<% if current_admin.admin? %>
 <ul class="nav nav-tabs nav-stacked">
 	<li class="active"><a href="#">Klienci</a></li>
+	<li><%= link_to 'Lista', admin_customers_path %></li>
 </ul>
+<% end %>
 
+<ul class="nav nav-tabs nav-stacked">
+	<li class="active"><a href="#">Finanse</a></li>
+	<li><%= link_to 'Historia konta', admin_balance_history_path %></li>
+</ul>
 
 <ul class="nav nav-tabs nav-stacked">
 	<li><%= link_to "Wyloguj", destroy_admin_session_path, {:method => 'delete'} %></li>

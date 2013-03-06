@@ -1,8 +1,4 @@
-<div class="span2">
-  <%= render :partial => 'admin/sidebar' %>
-</div>
-<div class="span10">
-	<%= render 'layouts/notifications' %>
+
 	<h1>
 		Odrzuć tekst (<%= @item.formal_name %>)
 	</h1>
@@ -27,5 +23,3 @@
 
 		<%= f.submit 'Wyślij', {:class => 'btn btn-primary'} %>
 	<% end %>
-	
-</div>
