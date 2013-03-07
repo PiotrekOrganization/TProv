@@ -5,7 +5,24 @@
 	<%= render 'layouts/notifications' %>
 	<ul class="breadcrumb">
 	  <li><%= link_to 'Home', root_path %> <span class="divider">/</span></li>
-	  <li class="active">Zlecenia - wszystkie</li>
+	  <% if @q.conditions.size > 0 %>
+	  	<li><%= link_to "Zlecenia", orders_path %> <span class="divider">/</span></li>
+		<li class="active">Zlecenia - wyniki wyszukiwania <!--(
+			<% for condition in @q.conditions %>
+				<% if condition.attributes.first.name == 'price' %>
+				cena: 
+				<% if condition.predicate.name == 'gteq' %>
+					od
+				<% elsif condition.predicate.name == 'lteq' %>
+					do
+				<% end %>
+				<%= format('%.2f PLN', condition.values.first.value) %>
+				<% end %>
+			<% end %>
+		)--></li>
+	  <% else %>
+	  	<li class="active">Zlecenia - wszystkie</li>
+	  <% end %>
 	</ul>
 
 	<table class="table">
