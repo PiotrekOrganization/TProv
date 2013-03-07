@@ -14,6 +14,10 @@ Textprovider::Application.routes.draw do
   namespace :admin do
     root :to => 'dashboard#index'
     match "customers" => 'admins#customers'
+    match "profile" => 'admin#profile'
+    match "mail_preferences" => 'admin#mail_settings'
+    match "save_mail_preferences" => 'admin#save_mail_settings'
+    put "update_password" => 'admin#update_password'
     resources :dashboard
     resources :users
     resources :orders do

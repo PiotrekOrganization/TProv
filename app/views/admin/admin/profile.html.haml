@@ -1,0 +1,15 @@
+%h2 Mój profil
+
+%h4 Zmiana hasła
+= form_for [:admin, @admin], :url => admin_update_password_path do |f|
+
+	%p
+		= f.label :password, "Nowe hasło"
+		= f.password_field :password, :autocomplete => "off"
+
+	%p
+		= f.label :password_confirmation, "Powtórz hasło"
+		= f.password_field :password_confirmation
+
+	%p
+		= f.submit "Zmień hasło", { :class => "btn btn-primary" }

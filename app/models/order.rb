@@ -1,7 +1,7 @@
 # encoding: utf-8
 class Order < ActiveRecord::Base
   attr_accessible :quantity, :user_id, :name, :signs, :description, :price, :ticket_time
-  has_many :items
+  has_many :items, :dependent => :nullify
   belongs_to :admin
   
   default_scope order('created_at DESC')

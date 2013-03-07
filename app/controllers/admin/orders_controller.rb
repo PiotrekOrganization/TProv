@@ -47,9 +47,13 @@ class Admin::OrdersController < Admin::AdminController
 		else
 			@order = current_admin.orders.find(params[:id])
 		end
-		@order.update_attributes(params[:order])
-		flash[:notice] = "Zlecenie zostało zmodyfikowane"
-		redirect_to admin_order_path(@order)
+		if @order.update_attributes(params[:order])
+			flash[:notice] = "Zlecenie zostało zmodyfikowane"
+			redirect_to admin_order_path(@order)
+		else
+			flash[:alert] = @order.errors.messages.inspect
+			render :edit
+		end
 	end
 
 	def export

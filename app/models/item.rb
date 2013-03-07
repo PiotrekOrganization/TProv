@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
 
   belongs_to :order
   belongs_to :user
-  has_many :conflicts
+  has_many :conflicts, :dependent => :destroy
 
   default_scope order('created_at DESC')
 

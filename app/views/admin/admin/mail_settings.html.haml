@@ -1,0 +1,15 @@
+%h2 Ustawienia powiadomień
+
+
+%form{ :action => admin_save_mail_preferences_path }
+	%table.table
+		%tr
+			%td 
+				%label.checkbox
+					%input{:type => 'checkbox', :name => "mailer[new_item]" }
+					Wyślij e-mail, kiedy pojawi się tekst oczekujący na zatwierdzenie
+
+	%input{ :type => 'submit', :class => 'btn btn-primary', :value => "Zapisz ustawienia" } 
+
+
+			

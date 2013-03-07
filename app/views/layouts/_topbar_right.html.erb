@@ -8,9 +8,17 @@
 	<li>
 		<a href="<%= url_for admin_balance_history_path %>">Saldo: <%= current_admin.formatted_balance %></a>
 	</li>
-	<li>
-  		<%= link_to 'Panel administracyjny', admin_dashboard_index_path %>
-  	</li>
+    <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    Moje konto
+    <b class="caret"></b>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a href="<%= url_for admin_profile_path %>">Zmiana danych</a></li>
+    <li><a href="<%= url_for admin_mail_preferences_path %>">Ustawienia powiadomień</a></li>
+  </ul>
+</li>
+  <li><%= link_to "Wyloguj", destroy_admin_session_path, {:method => 'delete'} %></li>
 <% else %>
   	<li>
   		<%= link_to('Logowanie', new_user_session_path)  %>  

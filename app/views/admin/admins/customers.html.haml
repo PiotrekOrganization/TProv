@@ -1,13 +1,16 @@
 %h1 Klienci
+%p= link_to "Dodaj nowego", new_admin_admin_path, {:class => 'btn btn-primary'}
 %table.table
 	%thead
 		%tr
 			%th email
 			%th aktywne zlecenia
+			%th ostatnie logowanie
 			%th status
 	%tbody
 		- for customer in @customers
 			%tr
 				%td= customer.email
 				%td= customer.active_orders.size
+				%td= customer.last_sign_in_at
 				%td= customer.status_label.html_safe

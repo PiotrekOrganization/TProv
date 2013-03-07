@@ -1,0 +1,16 @@
+= form_for [:admin, @admin] do |f|
+	
+	%p
+		%label.control-label Adres e-mail:
+		=f.email_field :email
+	
+	%p
+		%label.control-label Hasło:
+		=f.password_field :password
+	
+	%p
+		%label.control-label Powtórz hasło:
+		=f.password_field :password_confirmation
+	
+	%p
+		=f.submit 'Zapisz', {:class => 'btn btn-primary'}
