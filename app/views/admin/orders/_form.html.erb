@@ -7,7 +7,7 @@
 		<h4>Opis zlecenia</h4>
 		<p style="border-radius: 4px; border: 1px solid #ccc; padding: 10px;"><%= f.text_area :description, {:style => 'width: 100%; padding: 0; border: 0; height: 200px'} %></p>
 
-		<h4>Wynagrodzenie</h4>
+		<h4>Wynagrodzenie [gr]</h4>
 		<p><%= f.text_field :price %></p>
 
 		<h4>Ilość znaków</h4>
@@ -16,7 +16,7 @@
 		<h4>Ilość tekstów</h4>
 		<p><%= f.text_field :quantity %></p>
 
-		<h4>Czas trwania ticketu [s]</h4>
+		<h4>Czas trwania ticketu [s] (minimum 1800 s - 30 minut)</h4>
 		<p><%= f.text_field :ticket_time %></p>
 
 		<p><%= f.submit "Zapisz", {:class => 'btn btn-primary'} %></p>
