@@ -5,12 +5,34 @@
 	<%= render 'layouts/notifications' %>
 	<ul class="breadcrumb">
 	  <li><%= link_to 'Home', root_path %> <span class="divider">/</span></li>
-	  <li class="active">Teksty</li>
+	  <li class="active">Saldo konta</li>
 	</ul>
 
 	<h2>Stan konta</h2>
 	<p class="lead"><%= current_user.normalized_balance %></p>
 	<hr />
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Data</th>
+				<th>Kwota</th>
+				<th>Opis</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for balance in @balance_history %>
+			<tr class="<%= balance.reversed_row_class %>">
+				<td><%= balance.created_at %></td>
+				<td><%= balance.reversed_value %></td>
+				<td><%= balance.comment %></td>
+				<td><%= link_to "Link do tekstu", writer_item_path(balance.item) %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+
 	<%= link_to 'Wypłata', make_writer_payments_path, {:class => 'btn btn-primary'} %>
 
 </div>

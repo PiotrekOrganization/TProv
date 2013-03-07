@@ -1,0 +1,19 @@
+<ul class="nav pull-right">
+<% if user_signed_in? %>
+  	<%= render 'layouts/signed_in_topbar' %>
+  	<li>
+  		<%= link_to('Wyloguj', destroy_user_session_path, :method => :delete) %>        
+  	</li>
+<% elsif admin_signed_in? %>
+	<li>
+		<a href="<%= url_for admin_balance_history_path %>">Saldo: <%= current_admin.formatted_balance %></a>
+	</li>
+	<li>
+  		<%= link_to 'Panel administracyjny', admin_dashboard_index_path %>
+  	</li>
+<% else %>
+  	<li>
+  		<%= link_to('Logowanie', new_user_session_path)  %>  
+  	</li>
+<% end %>
+</ul>

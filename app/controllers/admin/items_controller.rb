@@ -45,15 +45,15 @@ class Admin::ItemsController < Admin::AdminController
 		@balance_history.item = @item
 		@balance_history.admin = @item.order.admin
 		@balance_history.user = @item.user
-		@balance_history.value = @item.price * -1
+		@balance_history.value = (@item.price * -1)
 		@balance_history.comment = "Realizacja tekstu do zlecenia ID #{@item.order.id}"
 		@balance_history.save
 		# save new admin balance
 		admin = @balance_history.admin
-		admin.balance += @balance_history.value
+		admin.balance -= @item.price
 		admin.save
 
-		render :show
+		redirect_to admin_item_path(@item)
 	end
 
 	def conflict

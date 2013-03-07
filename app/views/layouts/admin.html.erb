@@ -13,41 +13,11 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 		  <div class="navbar-inner">
 		    <div class="container">
+			
+			<!-- Be sure to leave the brand out there if you want it shown -->
+	      	<%= link_to 'TextProvider', root_path, {:class => 'brand'} %>
 		 
-		      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-		      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </a>
-		 
-		      <!-- Be sure to leave the brand out there if you want it shown -->
-		      <%= link_to 'TextProvider', root_path, {:class => 'brand'} %>
-		 
-		      <!-- Everything you want hidden at 940px or less, place within here -->
-		      <div class="nav-collapse collapse">
-		        
-		      </div>
-
-
-		      <ul class="nav pull-right">
-		      <% if user_signed_in? %>
-		      	<%= render 'layouts/signed_in_topbar' %>
-				  	<li>
-				  		<%= link_to('Wyloguj', destroy_user_session_path, :method => :delete) %>        
-				  	</li>
-					<% elsif admin_signed_in? %>
-						<li>
-				  		<%= link_to 'Panel administracyjny', admin_dashboard_index_path %>
-				  	</li>
-
-					<% else %>
-				  	<li>
-				  		<%= link_to('Logowanie', new_user_session_path)  %>  
-				  	</li>
-					<% end %>
-					</ul>
-		      		
+		    <%= render :partial => 'layouts/topbar_right' %>		
 		 
 		    </div>
 		  </div>
