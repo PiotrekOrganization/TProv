@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306214538) do
+ActiveRecord::Schema.define(:version => 20130308001159) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130306214538) do
     t.datetime "updated_at",                                :null => false
     t.boolean  "admin",                  :default => false
     t.integer  "balance",                :default => 0
+    t.boolean  "notify_new_item",        :default => true
   end
 
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true

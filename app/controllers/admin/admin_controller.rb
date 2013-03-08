@@ -24,7 +24,17 @@ class Admin::AdminController < ApplicationController
 	end
 
 	def save_mail_settings
+		begin
+		if params[:mailer][:new_item]
+			current_admin.notify_new_item = true
+		end
+		rescue
+			current_admin.notify_new_item = false
+		end
 
+		current_admin.save
+		flash[:notice] = "Ustawienia zostały zaktualizowane"
+		redirect_to admin_mail_preferences_path
 	end
 
 end
