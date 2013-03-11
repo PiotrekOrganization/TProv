@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130308001159) do
+ActiveRecord::Schema.define(:version => 20130308141207) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
@@ -101,10 +101,10 @@ ActiveRecord::Schema.define(:version => 20130308001159) do
     t.string   "lastname"
     t.string   "address"
     t.integer  "type"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.string   "email",                  :default => "",   :null => false
+    t.string   "encrypted_password",     :default => "",   :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -114,6 +114,9 @@ ActiveRecord::Schema.define(:version => 20130308001159) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "confirmed_terms",        :default => 0
+    t.boolean  "notify_new_order",       :default => true
+    t.boolean  "notify_item_accept",     :default => true
+    t.boolean  "notify_item_reject",     :default => true
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

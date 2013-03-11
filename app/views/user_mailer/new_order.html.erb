@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Witam, <%= @user.email %></h1>
+    <p>
+      Pojawiło się nowe zlecenie, którym możesz być zainteresowany(a).<br/>
+    </p>
+    <p>
+      Zobacz zlecenie: <a href="http://www.episarze.pl<%= @url %>"<%= @order.name %></a>
+    </p>
+    <hr />
+    <p><small>Jeśli nie chcesz otrzymywać takich wiadomości, zalgouj się do systemu i zmień ustawienia powiadomień.</small></p>
+  </body>
+</html>

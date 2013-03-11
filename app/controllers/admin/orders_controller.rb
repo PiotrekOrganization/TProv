@@ -1,6 +1,13 @@
 # coding: utf-8
 class Admin::OrdersController < Admin::AdminController
 
+	def send_new_order_notifications(order)
+		@users = User.where( :notify_new_order => true )
+		for user in @users
+			UserMailer.new_order(user,order).deliver
+		end
+	end
+
 	def index
 		if current_admin.admin?
 			@orders = Order.all
@@ -16,8 +23,8 @@ class Admin::OrdersController < Admin::AdminController
 	def create
 		@order = Order.new(params[:order])
 		@order.admin_id = current_admin.id
-		if @order.valid?
-			@order.save
+		if @order.save
+			send_new_order_notifications(@order)
 			redirect_to admin_orders_path
 		else
 			flash[:alert] = @order.errors.inspect
@@ -80,10 +87,4 @@ class Admin::OrdersController < Admin::AdminController
 		redirect_to admin_order_path(@order)
 	end
 
-end
-
-class ExportItem
-	def initialize(content)
-		@content = content
-	end
 end

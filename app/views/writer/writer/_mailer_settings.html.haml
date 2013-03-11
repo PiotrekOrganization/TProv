@@ -1,0 +1,30 @@
+%h3 Wyślij powiadomienie, kiedy:
+%form{ :action => writer_save_mail_settings_path }
+	%table.table
+		%tr
+			%td 
+				%label.checkbox
+					- if @user.notify_new_order?
+						%input{:type => 'checkbox', :name => "mailer[new_order]", :checked => 'checked' }
+					- else
+						%input{:type => 'checkbox', :name => "mailer[new_order]" }
+					pojawi się nowe zlecenie
+		%tr	
+			%td 
+				%label.checkbox
+					- if @user.notify_item_accept?
+						%input{:type => 'checkbox', :name => "mailer[item_accept]", :checked => 'checked' }
+					- else
+						%input{:type => 'checkbox', :name => "mailer[item_accept]" }
+					mój tekst zostanie zatwierdzony
+
+		%tr	
+			%td 
+				%label.checkbox
+					- if @user.notify_item_reject?
+						%input{:type => 'checkbox', :name => "mailer[item_reject]", :checked => 'checked' }
+					- else
+						%input{:type => 'checkbox', :name => "mailer[item_reject]" }
+					mój tekst zostanie odrzucony
+
+	%input{ :type => 'submit', :class => 'btn btn-primary', :value => "Zapisz ustawienia" }

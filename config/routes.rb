@@ -41,6 +41,10 @@ Textprovider::Application.routes.draw do
 
   namespace :writer do
 
+    match "settings" => "writer#settings"
+    match "save_mail_settings" => 'writer#save_mailer_settings'
+    match "save_new_password" => 'writer#save_new_password'
+
     resources :items do
       get 'write'
       put 'written'

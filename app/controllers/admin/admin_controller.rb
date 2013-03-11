@@ -12,6 +12,7 @@ class Admin::AdminController < ApplicationController
 		@admin = current_admin
 	    if @admin.update_attributes(params[:admin])
 	      	sign_in @admin, :bypass => true
+	      	flash[:notice] = "Hasło zostało zmienione"
 	      	redirect_to admin_profile_path
 	    else
 	    	flash[:alert] = "Wystąpił błąd"
@@ -34,7 +35,7 @@ class Admin::AdminController < ApplicationController
 
 		current_admin.save
 		flash[:notice] = "Ustawienia zostały zaktualizowane"
-		redirect_to admin_mail_preferences_path
+		redirect_to zapisane
 	end
 
 end

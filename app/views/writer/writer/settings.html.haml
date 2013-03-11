@@ -1,0 +1,30 @@
+= render :partial => '/layouts/notifications'
+%div.tabbable.tabs-left
+	%ul.nav.nav-tabs{:style=>"padding:30px 0;"}
+		- if @tab.nil?
+			%li.active
+				%a{:href => "#pass-change", "data-toggle" => "tab"} Zmiana hasła
+			%li
+				%a{:href => "#mailer-settings", "data-toggle" => "tab"} Ustawienia powiadomień
+		- else 
+			%li
+				%a{:href => "#pass-change", "data-toggle" => "tab"} Zmiana hasła
+			%li.active
+				%a{:href => "#mailer-settings", "data-toggle" => "tab"} Ustawienia powiadomień
+
+	%div.tab-content
+		- if @tab.nil?
+			%div#pass-change.tab-pane.active
+				= render :partial => 'change_password'
+		- else
+			%div#pass-change.tab-pane
+				= render :partial => 'change_password'
+
+		- if @tab == 'mail'
+			%div#mailer-settings.tab-pane.active
+				= render :partial => 'mailer_settings'
+		- else
+			%div#mailer-settings.tab-pane
+				= render :partial => 'mailer_settings'
+
+				
