@@ -8,6 +8,8 @@ class Admin::ConflictsController < Admin::AdminController
 			@conflict.save
 			@conflict.item.status = 3
 			@conflict.item.save
+			@conflict.item.order.quantity += 1
+			@conflict.item.order.save
 		else
 			flash[:alert] = 'Wystąpił błąd'
 		end
