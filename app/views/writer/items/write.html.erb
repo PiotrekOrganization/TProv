@@ -22,9 +22,18 @@
 		
 		<%= form_for @item, :url => {:action => 'written'} do |f| %>
 			<div style="border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px; margin-top: 10px; padding: 10px;">
-		  	<%= f.text_area :content, {:style => 'width: 100%; padding: 0; border:0; margin: 0; height: 300px;'} %>
+		  	<%= f.text_area :content, {:style => 'width: 100%; padding: 0; border:0; margin: 0; height: 300px;', :id => 'main-item-textarea'} %>
 		  </div>
 		  <%= f.submit "Zapisz", {:class => 'btn btn-primary'} %>
 		<% end %>
+		<p>Ilość znaków: <span id="letter-counter"></span></p>
+
+		<script type="text/javascript">
+		$(document).ready( function(){
+			$('#main-item-textarea').keyup( function() {
+				$('#letter-counter').html($(this).val().length)
+			})
+		})
+		</script>
 
 </div>
