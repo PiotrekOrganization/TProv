@@ -11,6 +11,9 @@ class BalanceHistory < ActiveRecord::Base
   end
 
   def reversed_value
+    if self[:value] == 0
+      return 0
+    else
     balance = self[:value].to_f / -100
     format('%.2f PLN', balance)
   end
@@ -24,7 +27,7 @@ class BalanceHistory < ActiveRecord::Base
   end
 
   def reversed_row_class
-    if self[:value] < 0
+    if self[:value] <= 0
       'success'
     else
       'warning'
