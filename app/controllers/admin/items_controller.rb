@@ -17,18 +17,22 @@ class Admin::ItemsController < Admin::AdminController
 	end
 
 	def expired
-		@items = Item.where(:status => 0).where("expires < '#{Time.now}'")
+		if current_admin.admin?
+			@items = Item.where(:status => 0).where("expires < '#{Time.now}'")
+		end
 	end
 
 	def set_expired
-		@items = Item.where(:status => 0).where("expires < '#{Time.now}'")
-		for item in @items
-			item.order.quantity += 1
-			item.status = 8
-			item.save
-			item.order.save
+		if current_admin.admin?
+			@items = Item.where(:status => 0).where("expires < '#{Time.now}'")
+			for item in @items
+				item.order.quantity += 1
+				item.status = 8
+				item.save
+				item.order.save
+			end
+			redirect_to expired_admin_items_path
 		end
-		redirect_to expired_admin_items_path
 	end
 
 	def show
