@@ -18,13 +18,13 @@ class Admin::ItemsController < Admin::AdminController
 
 	def expired
 		if current_admin.admin?
-			@items = Item.where(:status => 0).where("expires < '#{Time.now}'")
+			@items = Item.where(:status => 0).where("expires < '#{DateTime.current}'")
 		end
 	end
 
 	def set_expired
 		if current_admin.admin?
-			@items = Item.where(:status => 0).where("expires < '#{Time.now}'")
+			@items = Item.where(:status => 0).where("expires < '#{DateTime.current}'")
 			for item in @items
 				item.order.quantity += 1
 				item.status = 8

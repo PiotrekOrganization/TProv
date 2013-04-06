@@ -16,7 +16,7 @@ class Item < ActiveRecord::Base
   validates :expires, :presence => true
 
   def time_left
-  	left = self[:expires].to_datetime - DateTime.now
+  	left = self[:expires].to_datetime - DateTime.current
   	left = left * 1.days
   	if left > 10
   		return '<span class="timer-countdown">' + left.to_i.to_s + '</span>'

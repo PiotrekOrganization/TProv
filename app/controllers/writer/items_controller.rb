@@ -35,7 +35,7 @@ class Writer::ItemsController < Writer::WriterController
 			:status => 0
 		).first()
 		# check if there is still time for this
-		if @item.expires < DateTime.now
+		if @item.expires < DateTime.current
 			@item.status = 8
 			@item.save
 			@item.order.quantity = @item.order.quantity + 1
@@ -70,7 +70,7 @@ class Writer::ItemsController < Writer::WriterController
 			@item.order.save
 			@item.status = 0
 			@item.price = @item.order.price
-			@item.expires = DateTime.now + @item.order.ticket_time.to_i.seconds
+			@item.expires = DateTime.current + @item.order.ticket_time.to_i.seconds
 			@item.save
 		end
 		redirect_to writer_item_path(@item)
