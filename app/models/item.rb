@@ -55,6 +55,8 @@ class Item < ActiveRecord::Base
   def expired_icon
     if (self[:expires] - DateTime.current) < 0
       '<span class="label label-important">Czas minął</span>'
+    else
+      return ''
     end
   end
 
