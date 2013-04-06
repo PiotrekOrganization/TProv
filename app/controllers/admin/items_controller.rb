@@ -16,6 +16,21 @@ class Admin::ItemsController < Admin::AdminController
 		end
 	end
 
+	def expired
+		@items = Item.where(:status => 0).where("expires < '#{Time.now}'")
+	end
+
+	def set_expired
+		@items = Item.where(:status => 0).where("expires < '#{Time.now}'")
+		for item in @items
+			item.order.quantity += 1
+			item.status = 8
+			item.save
+			item.order.save
+		end
+		redirect_to expired_admin_items_path
+	end
+
 	def show
 		@item = Item.find(params[:id])
 		unless current_admin.admin?

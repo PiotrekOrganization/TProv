@@ -31,6 +31,10 @@ Textprovider::Application.routes.draw do
         get 'confirm'
         get 'conflict'
       end
+      collection do
+        get 'expired'
+        get 'set_expired'
+      end
     end
     resources :conflicts
     resources :pages

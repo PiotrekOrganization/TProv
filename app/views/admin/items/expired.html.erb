@@ -1,0 +1,28 @@
+<h3>Wygasłe teksty</h3>
+<p>
+<%= link_to "Oznacz jako zamknięte", set_expired_admin_items_path, {:class => 'btn btn-primary'} %>
+</p>
+	<table class="table">
+		<thead>
+			<th>ID</th>
+			<th>Nazwa</th>
+			<th>Status</th>
+			<th>Wartość</th>
+			<% if current_admin.admin? %>
+				<th>Autor</th>
+			<% end %>
+		</thead>
+		<tbody>
+		<% @items.each do |i| %>
+			<tr>
+				<td>#<%= i.order.id %>/#<%= i.id %></td>
+				<td><%= link_to i.order.name, admin_item_path(i) %></td>
+				<td><%= i.status_name.html_safe %></td>
+				<td><%= i.normalized_price %></td>
+				<% if current_admin.admin? %>
+					<td><%= link_to i.user.email, admin_user_path(i.user) %></td>
+				<% end %>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>	
