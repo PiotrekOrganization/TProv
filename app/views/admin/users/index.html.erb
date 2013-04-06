@@ -3,6 +3,8 @@
 		<thead>
 			<tr>
 				<th>Adres e-mail</th>
+				<th>Liczba tekstów</th>
+				<th>Ostatnie logowanie</th>
 				<th>Stan konta</th>
 			</tr>
 		</thead>
@@ -10,6 +12,8 @@
 		<% for user in @users %>
 			<tr>
 				<td><%= user.email %></td>
+				<td><%= user.items.size %>
+				<td><%= user.current_sign_in_at %>
 				<td><%= user.normalized_balance %></td>
 			</tr>
 		<% end %>
