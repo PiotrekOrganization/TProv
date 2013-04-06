@@ -15,7 +15,7 @@
 			<tr>
 				<td>#<%= i.order.id %>/#<%= i.id %></td>
 				<td><%= link_to i.order.name, admin_item_path(i) %></td>
-				<td><%= i.status_name.html_safe %></td>
+				<td><%= i.status_name.html_safe %> <%= i.expired_icon.html_safe %></td>
 				<td><%= i.normalized_price %></td>
 				<td><% if i.status == 0 %><%= distance_of_time_in_words_to_now(i.expires) %><% end %></td>
 				<% if current_admin.admin? %>

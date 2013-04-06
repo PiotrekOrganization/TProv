@@ -52,6 +52,12 @@ class Item < ActiveRecord::Base
   # 10 - confirmed, account balance increased
 	end
 
+  def expired_icon
+    if (self[:expires] - DateTime.current) < 0
+      '<span class="label label-important">Czas minął</span>'
+    end
+  end
+
 	def normalized_price
 		price = (self[:price].to_f / 100)
 		("%.2f" % price) + ' PLN'
