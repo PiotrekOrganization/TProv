@@ -24,7 +24,7 @@ class Admin::OrdersController < Admin::AdminController
 		@order = Order.new(params[:order])
 		@order.admin_id = current_admin.id
 		if @order.save
-			send_new_order_notifications(@order)
+			#send_new_order_notifications(@order)
 			redirect_to admin_orders_path
 		else
 			flash[:alert] = @order.errors.inspect
