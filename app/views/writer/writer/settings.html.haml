@@ -5,12 +5,12 @@
 			%li.active
 				%a{:href => "#pass-change", "data-toggle" => "tab"} Zmiana hasła
 			%li
-				%a{:href => "#mailer-settings", "data-toggle" => "tab"} Ustawienia powiadomień
+				%a{:href => "#mailer-settings", "data-toggle" => "tab"} Ustawienia powiadomień (beta)
 		- else 
 			%li
 				%a{:href => "#pass-change", "data-toggle" => "tab"} Zmiana hasła
 			%li.active
-				%a{:href => "#mailer-settings", "data-toggle" => "tab"} Ustawienia powiadomień
+				%a{:href => "#mailer-settings", "data-toggle" => "tab"} Ustawienia powiadomień (beta)
 
 	%div.tab-content
 		- if @tab.nil?
