@@ -13,7 +13,7 @@ class BalanceHistory < ActiveRecord::Base
   def reversed_value
     if self[:value] == 0
       return 0
-    else
+    end
     balance = self[:value].to_f / -100
     format('%.2f PLN', balance)
   end
