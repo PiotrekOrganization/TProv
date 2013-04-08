@@ -10,7 +10,7 @@ class Admin::AdminsController < Admin::AdminController
 	end
 
 	def customers
-		@customers = Admin.where( :admin => false )
+		@customers = Admin.all
 	end
 
 	def new

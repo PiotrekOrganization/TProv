@@ -7,6 +7,7 @@
 			%th aktywne zlecenia
 			%th ostatnie logowanie
 			%th status
+			%th saldo
 	%tbody
 		- for customer in @customers
 			%tr
@@ -14,3 +15,4 @@
 				%td= customer.active_orders.size
 				%td= customer.current_sign_in_at
 				%td= customer.status_label.html_safe
+				%td= format("%.2f PLN", customer.balance.to_f/100)
