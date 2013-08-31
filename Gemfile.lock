@@ -88,6 +88,9 @@ GEM
       activesupport (= 3.2.9)
       bundler (~> 1.0)
       railties (= 3.2.9)
+    rails-i18n (3.0.0.pre2)
+      i18n (~> 0.5)
+      rails (>= 3.0.0, < 4.0.0)
     railties (3.2.9)
       actionpack (= 3.2.9)
       activesupport (= 3.2.9)
@@ -150,6 +153,7 @@ DEPENDENCIES
   jquery-rails
   pg (>= 0.16.0)
   rails (~> 3.2.9)
+  rails-i18n (~> 3.0.0.pre)
   ransack
   sass-rails (~> 3.2.3)
   therubyracer

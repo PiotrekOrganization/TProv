@@ -1,6 +1,8 @@
 # encoding: utf-8
 class Item < ActiveRecord::Base
 
+  include ActionView::Helpers::DateHelper
+
   attr_accessible :content, :order_id, :user_id
 
   belongs_to :order
@@ -64,5 +66,16 @@ class Item < ActiveRecord::Base
 		price = (self[:price].to_f / 100)
 		("%.2f" % price) + ' PLN'
 	end
+
+  def expired_time_label   
+    unless status == 0
+      return ''
+    end 
+    if(expires>=DateTime.current)
+      "<span class='label label-danger'>#{distance_of_time_in_words_to_now(expires)}</span>"
+    else
+      "<span class='label label-info'>#{distance_of_time_in_words_to_now(expires)}</span>"
+    end
+  end
 
 end

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class Item - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/item.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">ActionView::Helpers::DateHelper</span>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-expired_icon">#expired_icon</a>
+    
+    <li><a href="#method-i-expired_time_label">#expired_time_label</a>
+    
+    <li><a href="#method-i-formal_name">#formal_name</a>
+    
+    <li><a href="#method-i-normalized_price">#normalized_price</a>
+    
+    <li><a href="#method-i-status_name">#status_name</a>
+    
+    <li><a href="#method-i-time_left">#time_left</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Admin.html">Admin</a>
+  
+    <li><a href="./Admin/AdminController.html">Admin::AdminController</a>
+  
+    <li><a href="./Admin/AdminsController.html">Admin::AdminsController</a>
+  
+    <li><a href="./Admin/BalanceHistoryController.html">Admin::BalanceHistoryController</a>
+  
+    <li><a href="./Admin/ConflictsController.html">Admin::ConflictsController</a>
+  
+    <li><a href="./Admin/DashboardController.html">Admin::DashboardController</a>
+  
+    <li><a href="./Admin/ItemsController.html">Admin::ItemsController</a>
+  
+    <li><a href="./Admin/OrdersController.html">Admin::OrdersController</a>
+  
+    <li><a href="./Admin/PagesController.html">Admin::PagesController</a>
+  
+    <li><a href="./Admin/UsersController.html">Admin::UsersController</a>
+  
+    <li><a href="./Writer.html">Writer</a>
+  
+    <li><a href="./Writer/ItemsController.html">Writer::ItemsController</a>
+  
+    <li><a href="./Writer/OrdersController.html">Writer::OrdersController</a>
+  
+    <li><a href="./Writer/PaymentsController.html">Writer::PaymentsController</a>
+  
+    <li><a href="./Writer/WriterController.html">Writer::WriterController</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./BalanceHistory.html">BalanceHistory</a>
+  
+    <li><a href="./Conflict.html">Conflict</a>
+  
+    <li><a href="./HomeController.html">HomeController</a>
+  
+    <li><a href="./Item.html">Item</a>
+  
+    <li><a href="./ItemsController.html">ItemsController</a>
+  
+    <li><a href="./Order.html">Order</a>
+  
+    <li><a href="./OrdersController.html">OrdersController</a>
+  
+    <li><a href="./Page.html">Page</a>
+  
+    <li><a href="./PagesController.html">PagesController</a>
+  
+    <li><a href="./Payment.html">Payment</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserMailer.html">UserMailer</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Item</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-expired_icon" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expired_icon</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="expired_icon-source">
+            <pre><span class="ruby-comment"># File app/models/item.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expired_icon</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-keyword">self</span>[<span class="ruby-value">:expires</span>] <span class="ruby-operator">-</span> <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">current</span>) <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">self</span>[<span class="ruby-value">:status</span>] <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-string">'&lt;span class=&quot;label label-important&quot;&gt;Czas minął&lt;/span&gt;'</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">''</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- expired_icon-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- expired_icon-method -->
+
+    
+      <div id="method-i-expired_time_label" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expired_time_label</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="expired_time_label-source">
+            <pre><span class="ruby-comment"># File app/models/item.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expired_time_label</span>   
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">''</span>
+  <span class="ruby-keyword">end</span> 
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">expires</span><span class="ruby-operator">&gt;=</span><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">current</span>)
+    <span class="ruby-node">&quot;&lt;span class='label label-danger'&gt;#{distance_of_time_in_words_to_now(expires)}&lt;/span&gt;&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;&lt;span class='label label-info'&gt;#{distance_of_time_in_words_to_now(expires)}&lt;/span&gt;&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- expired_time_label-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- expired_time_label-method -->
+
+    
+      <div id="method-i-formal_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">formal_name</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="formal_name-source">
+            <pre><span class="ruby-comment"># File app/models/item.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">formal_name</span>
+      <span class="ruby-string">'numer: #'</span> <span class="ruby-operator">+</span> <span class="ruby-keyword">self</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- formal_name-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- formal_name-method -->
+
+    
+      <div id="method-i-normalized_price" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalized_price</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="normalized_price-source">
+            <pre><span class="ruby-comment"># File app/models/item.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalized_price</span>
+        <span class="ruby-identifier">price</span> = (<span class="ruby-keyword">self</span>[<span class="ruby-value">:price</span>].<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-value">100</span>)
+        (<span class="ruby-string">&quot;%.2f&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">price</span>) <span class="ruby-operator">+</span> <span class="ruby-string">' PLN'</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- normalized_price-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- normalized_price-method -->
+
+    
+      <div id="method-i-status_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">status_name</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="status_name-source">
+            <pre><span class="ruby-comment"># File app/models/item.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">status_name</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-keyword">self</span>[<span class="ruby-value">:status</span>].<span class="ruby-identifier">to_i</span>
+              <span class="ruby-keyword">when</span> <span class="ruby-value">0</span>
+                      <span class="ruby-string">'&lt;span class=&quot;label&quot;&gt;Otwarte&lt;/span&gt;'</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+      <span class="ruby-string">'&lt;span class=&quot;label label-important&quot;&gt;Odrzucone&lt;/span&gt;'</span>
+              <span class="ruby-keyword">when</span> <span class="ruby-value">5</span>
+                      <span class="ruby-string">'&lt;span class=&quot;label label-info&quot;&gt;Zamknięte, oczekuje na potwierdzenie&lt;/span&gt;'</span>
+              <span class="ruby-keyword">when</span> <span class="ruby-value">8</span>
+                      <span class="ruby-string">'&lt;span class=&quot;label label-important&quot;&gt;Czas minął&lt;/span&gt;'</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">10</span>
+      <span class="ruby-string">'&lt;span class=&quot;label label-success&quot;&gt;Zatwierdzone&lt;/span&gt;'</span>
+      <span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># status legend:</span>
+<span class="ruby-comment"># 0 - open, after created</span>
+<span class="ruby-comment"># 3 - get back from status 5 becouse of alert ser by admin</span>
+<span class="ruby-comment"># 5 - saved and waiting for check</span>
+<span class="ruby-comment"># 8 - saved after time has gone</span>
+<span class="ruby-comment"># 10 - confirmed, account balance increased</span>
+      <span class="ruby-keyword">end</span></pre>
+          </div><!-- status_name-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- status_name-method -->
+
+    
+      <div id="method-i-time_left" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">time_left</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="time_left-source">
+            <pre><span class="ruby-comment"># File app/models/item.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">time_left</span>
+      <span class="ruby-identifier">left</span> = <span class="ruby-keyword">self</span>[<span class="ruby-value">:expires</span>].<span class="ruby-identifier">to_datetime</span> <span class="ruby-operator">-</span> <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">current</span>
+      <span class="ruby-identifier">left</span> = <span class="ruby-identifier">left</span> * <span class="ruby-value">1</span>.<span class="ruby-identifier">days</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">left</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>
+              <span class="ruby-keyword">return</span> <span class="ruby-string">'&lt;span class=&quot;timer-countdown&quot;&gt;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">left</span>.<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">'&lt;/span&gt;'</span>
+      <span class="ruby-keyword">else</span>
+              <span class="ruby-keyword">return</span> <span class="ruby-string">'czas minął'</span>
+      <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- time_left-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- time_left-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
