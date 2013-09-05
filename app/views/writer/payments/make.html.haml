@@ -1,1 +1,11 @@
-%p Wypłaty realizujemy ręcznie. Proszę zgłosić się do administratora systemu (piotr.imbierowicz@inkworks.pl). 
+- unless current_user.can_withdraw_balance?
+	%p Twoje saldo nie osiągnęło odpowiedniego poziomu do wypłaty
+- else
+	= form_for [:writer, @payment], :html => { :class=>'form-horizontal' } do |f|
+		.control-group
+			= f.label :value, :class => 'control-label'
+			.controls
+				= f.text_field :value
+		.control-group
+			.controls
+				= f.submit "Zlecam wypłatę", :class=>'btn btn-primary'

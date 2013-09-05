@@ -27,7 +27,11 @@
 				<td><%= balance.created_at %></td>
 				<td><%= balance.reversed_value %></td>
 				<td><%= balance.comment %></td>
-				<td><%= link_to "Link do tekstu", writer_item_path(balance.item) %></td>
+				<td>
+					<% unless balance.item.nil? %>
+						<%= link_to "Link do tekstu", writer_item_path(balance.item) %>
+					<% end %>
+				</td>
 			</tr>
 			<% end %>
 		</tbody>

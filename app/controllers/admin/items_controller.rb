@@ -58,7 +58,10 @@ class Admin::ItemsController < Admin::AdminController
 		end
 		# set as confirmed and save
 		@item.status = 10
-		@item.save
+		@item.save!
+		# save user balance
+		@item.user.balance += @item.price
+		@item.user.save!
 		# create balance history record
 		@balance_history = BalanceHistory.new
 		@balance_history.item = @item
@@ -66,11 +69,12 @@ class Admin::ItemsController < Admin::AdminController
 		@balance_history.user = @item.user
 		@balance_history.value = (@item.price * -1)
 		@balance_history.comment = "Realizacja tekstu do zlecenia ID #{@item.order.id}"
-		@balance_history.save
+		@balance_history.save!
 		# save new admin balance
 		admin = @balance_history.admin
 		admin.balance -= @item.price
-		admin.save
+		admin.save!
+
 
 		redirect_to admin_item_path(@item)
 	end

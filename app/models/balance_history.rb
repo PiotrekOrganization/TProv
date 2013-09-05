@@ -3,6 +3,8 @@ class BalanceHistory < ActiveRecord::Base
   belongs_to :admin
   belongs_to :user
   belongs_to :item
+  belongs_to :payment
+
   default_scope order('created_at DESC')
 
   def formatted_value

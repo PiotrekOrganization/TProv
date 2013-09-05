@@ -12,18 +12,15 @@ class User < ActiveRecord::Base
   validates :confirmed_terms, :numericality => {:only_integer => true, :greater_than => 0}
 
   has_many :items
-
-  def balance
-  	sum = 0
-  	self.items.where(:status => 10).each do |item|
-  		sum += item.price
-  	end
-  	sum
-  end
+  has_many :payments
 
   def normalized_balance
 		price = (self.balance.to_f / 100)
 		("%.2f" % price) + ' PLN'
 	end
+   
+  def can_withdraw_balance?
+    return balance > 0
+  end
 
 end

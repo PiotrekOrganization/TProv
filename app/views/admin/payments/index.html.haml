@@ -1,0 +1,18 @@
+%h3 Payments
+	
+%table.table
+	%thead
+		%tr
+			%th Data
+			%th Użytkownik
+			%th Kwota
+			%th Status
+			%th 
+	%tbody
+		- for payment in @payments
+			%tr
+				%td= payment.created_at
+				%td= link_to payment.user.email, admin_user_path(payment.user)
+				%td= format('%.2f PLN', payment.value.to_f/100)
+				%td= payment.status
+				%td
