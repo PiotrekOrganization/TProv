@@ -14,17 +14,9 @@ Textprovider::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :user_name            => 'imbierowicz.piotr@gmail.com',
-    :password             => '---',
-    :authentication       => 'plain',
-    :enable_starttls_auto => true  
-  }
+  config.action_mailer.delivery_method = :mailer
   config.action_mailer.perform_deliveries = true #try to force sending in development 
+  
   config.action_mailer.raise_delivery_errors = true 
   config.action_mailer.default_charset = "utf-8"
 
