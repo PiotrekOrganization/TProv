@@ -16,3 +16,5 @@
 				%td= format('%.2f PLN', payment.value.to_f/100)
 				%td= payment.status
 				%td
+					-if payment.status == Payment::Request
+						=link_to "Potwierdź", complete_admin_payment_path(payment), :class=>"btn btn-success"

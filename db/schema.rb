@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130905095127) do
+ActiveRecord::Schema.define(:version => 20130905102552) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
@@ -42,6 +42,24 @@ ActiveRecord::Schema.define(:version => 20130905095127) do
     t.integer  "value"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "payment_id"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.float    "lat"
+    t.float    "lng"
+    t.float    "round"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "note_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "conflicts", :force => true do |t|
@@ -53,6 +71,14 @@ ActiveRecord::Schema.define(:version => 20130905095127) do
     t.integer  "item_id"
   end
 
+  create_table "guests", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "ip_address"
+    t.float    "latitude"
+    t.float    "longitude"
+  end
+
   create_table "items", :force => true do |t|
     t.integer  "order_id"
     t.text     "content"
@@ -62,6 +88,26 @@ ActiveRecord::Schema.define(:version => 20130905095127) do
     t.datetime "expires"
     t.integer  "status"
     t.integer  "price"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "notes", :force => true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.integer  "place_id"
   end
 
   create_table "orders", :force => true do |t|
@@ -94,6 +140,28 @@ ActiveRecord::Schema.define(:version => 20130905095127) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "status"
+  end
+
+  create_table "places", :force => true do |t|
+    t.string   "name"
+    t.boolean  "private_view"
+    t.boolean  "private_write"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "slug"
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "place_id"
+    t.float    "lat"
+    t.float    "lng"
+    t.float    "round"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

@@ -20,7 +20,11 @@ Textprovider::Application.routes.draw do
     put "update_password" => 'admin#update_password'
     resources :dashboard
     resources :users
-    resources :payments
+    resources :payments do 
+      member do
+        get 'complete'
+      end
+    end
     resources :orders do
       member do
         get 'close'
