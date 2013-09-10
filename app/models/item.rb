@@ -71,8 +71,8 @@ class Item < ActiveRecord::Base
     unless status == 0
       return ''
     end 
-    if(expires>=DateTime.current)
-      "<span class='label label-danger'>#{distance_of_time_in_words_to_now(expires)}</span>"
+    if( self[:expires] - DateTime.current) < 0
+      "<span class='label label-important'>#{distance_of_time_in_words_to_now(expires)}</span>"
     else
       "<span class='label label-info'>#{distance_of_time_in_words_to_now(expires)}</span>"
     end

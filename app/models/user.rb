@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :payments
 
   def normalized_balance
-		price = (self.balance.to_f / 100)
+		price = (self[:balance].to_f / 100)
 		("%.2f" % price) + ' PLN'
 	end
    
