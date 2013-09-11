@@ -1,4 +1,9 @@
 # encoding: utf-8
+##
+# Klasa reprezentuje tekst realizowany przez wykonawcę, przypisany do zlecenia.
+# Parametry:
+#   user - użytkownik, wykonawca tekstu
+#   order - zlecenie do którego należy tekst
 class Item < ActiveRecord::Base
 
   include ActionView::Helpers::DateHelper

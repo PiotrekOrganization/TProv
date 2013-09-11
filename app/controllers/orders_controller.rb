@@ -1,6 +1,10 @@
 # encoding: utf-8
 class OrdersController < ApplicationController
 
+
+	##
+	# Lista aktywnych zleceń na teksty. 
+	# params[:q] zawiera dane wyszukiwania (patrz gem ransack)
 	def index
 		begin
 			if params[:q][:price_gteq].to_f > 0
@@ -23,8 +27,9 @@ class OrdersController < ApplicationController
 
 	end
 
+	##
+	# Widok pojedynczego tekstu
 	def show
-		
 		@order = Order.find(params[:id])
 		@q = Order.where('quantity > 0').search(params[:q])
 	end
