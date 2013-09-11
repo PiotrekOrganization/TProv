@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: local_s_development
   pool: 5
-  username: rafal
+  username: piotr
   password: 
 
   # Connect on a TCP socket. Omitted by default since the client uses a
